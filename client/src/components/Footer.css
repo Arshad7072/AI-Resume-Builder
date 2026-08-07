@@ -1,0 +1,45 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 8rem 1rem 8rem;
+  background-color: rgb(124, 58, 237);
+}
+.footer .logo {
+  display: flex;
+  gap: 1rem;
+}
+.logo img {
+  background-color: white;
+  border-radius: 1rem;
+}
+.text h1{
+    font-family: "poppins",sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 500;
+}
+.text p{
+    color: white;
+    font-family: "inter",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.footer button{
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;   
+    padding: 1rem;
+    font-family: "poppins";
+    font-size: 1rem;
+    border-radius: 1rem;
+    color: rgb(124, 58, 237) ;
+}
+.footer button:hover{
+    transition: 0.3s;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 8px rgb(107, 114, 128);
+}

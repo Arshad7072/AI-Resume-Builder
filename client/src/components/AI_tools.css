@@ -1,0 +1,93 @@
+.AI_tools-text {
+  margin-top: 5rem;
+  text-align: center;
+  cursor: pointer;
+}
+.AI_tools-text span {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(226, 232, 240);
+  border-radius: 1rem;
+  color: rgb(124, 58, 237);
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  font-weight: 550;
+  align-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: 0.3s;
+}
+.AI_tools-title {
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.AI_tools-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 2rem;
+}
+.AI_tools-title h1 {
+  font-family: "poppins", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.AI_tools-title p {
+  margin-top: 1rem;
+  font-family: "inter", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: rgb(107, 114, 128);
+}
+.tools_container {
+  display: flex;
+}
+.tool {
+  height: 12rem;
+  width: 15rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 2px rgb(107, 114, 128);
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+}
+.tool h1 {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  font-family: "poppins", sans-serif;
+}
+.tool p {
+  margin-top: 0.3rem;
+  font-family: "inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(107, 114, 128);
+}
+.tool img {
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+@media (max-width: 768px) {
+  .tools_container {
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+  }
+  .AI_tools-title h1 {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .AI_tools-title p {
+   
+  font-size: 0.7rem;
+   text-align: center;
+}
+}

@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.pricing_container {
+  display: flex;
+  margin: 0 20% 0 20%;
+}
+.pricing {
+  min-height: 18rem;
+  width: 15rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 2px rgb(107, 114, 128);
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.pricing #free {
+  font-family: "Poppins", sans-serif;
+  color: rgb(124, 58, 237);
+  font-size: 1rem;
+  font-weight: 550;
+}
+.pricing h1 {
+  font-size: 1rem;
+  margin-top: 0.7rem;
+  font-family: "poppins", sans-serif;
+}
+.pricing h1 #month {
+  color: rgb(107, 114, 128);
+  font-size: 0.7rem;
+}
+.pricing ul {
+  list-style-type: none;
+  margin-top: 0.2rem;
+}
+.pricing li {
+  color: rgb(107, 114, 128);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+.pricing button {
+  background-color: white;
+  color: rgb(124, 58, 237);
+  border: 1px solid rgb(124, 58, 237);
+  padding: 0.2rem 2rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: auto 0 0;
+  align-self: center;
+}
+.pricing.active {
+  border: 2px solid rgb(124, 58, 237);
+  box-shadow: 0 15px 35px rgb(107, 114, 128);
+}
+.pricing.active button {
+  background-color: rgb(124, 58, 237);
+  color: white;
+}
+@media (max-width: 768px) {
+  .pricing_container {
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    margin: 0;
+  }
+  .pricing {
+    height: 20rem;
+    width: 11rem;
+    margin: 2rem;
+    padding: 0.5rem;
+  }
+  .pricing button {
+    padding: 0.2rem 0.7rem;
+    font-family: "Poppins", sans-serif;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 1.1rem;
+  }
+  .header-title h1 {
+    font-size: 1rem;
+    
+  }
+}

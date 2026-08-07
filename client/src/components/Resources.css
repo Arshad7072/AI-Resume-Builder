@@ -1,0 +1,46 @@
+.resources-container {
+  display: flex;
+}
+.resources img {
+  height: 10rem;
+  width: 15rem;
+  padding: 1.5rem;
+  background-color: rgb(206, 217, 244);
+  border-radius: 1rem;
+}
+.resources {
+  height: 18rem;
+  width: 15rem;
+
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+}
+
+.resources span {
+  font-family: "inter", sans-serif;
+  color: rgb(124, 58, 237);
+  font-weight: 500;
+  font-size: 0.7rem;
+  background-color: rgb(226, 232, 240);
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+}
+.resources h1 {
+  font-size: 1rem;
+  font-family: "poppins", sans-serif;
+  margin-top: 0.7rem;
+}
+.resources button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: white;
+  color: rgb(124, 58, 237);
+  margin-top: 0.2rem;
+}
+.resources button:hover {
+  transition: 0.3s;
+  transform: translatex(5px);
+}
