@@ -1,0 +1,135 @@
+/* ===========================
+   Welcome Banner
+=========================== */
+
+.welcome-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+
+  color: white;
+
+  padding: 2rem;
+
+  border-radius: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.welcome-text {
+  flex: 1;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+
+  margin-bottom: 0.8rem;
+}
+
+.welcome-text p {
+  max-width: 38rem;
+
+  line-height: 1.7;
+
+  opacity: 0.95;
+}
+
+.quick-actions {
+  display: flex;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: white;
+
+  color: #7c3aed;
+
+  border: none;
+
+  padding: 0.9rem 1.3rem;
+
+  border-radius: 0.8rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.15);
+
+  color: white;
+
+  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+
+  padding: 0.9rem 1.3rem;
+
+  border-radius: 0.8rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #f3f4f6;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+  .welcome-banner {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+  .welcome-banner {
+    padding: 1.5rem;
+  }
+
+  .welcome-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .quick-actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}

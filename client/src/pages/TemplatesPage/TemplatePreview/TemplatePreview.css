@@ -1,0 +1,157 @@
+/* ==========================================
+   Template Preview
+========================================== */
+
+.template-preview-page {
+  min-height: 100vh;
+  background: #f4f6fb;
+  padding: 30px;
+}
+
+/* ==========================================
+   Toolbar
+========================================== */
+
+.preview-toolbar {
+  max-width: 1000px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.back-btn,
+.use-btn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.back-btn {
+  background: #ffffff;
+
+  color: #374151;
+
+  border: 1px solid #e5e7eb;
+}
+
+.back-btn:hover {
+  background: #f3f4f6;
+}
+
+.use-btn {
+  background: #7c3aed;
+
+  color: #fff;
+}
+
+.use-btn:hover {
+  background: #6d28d9;
+}
+
+/* ==========================================
+   Resume Paper
+========================================== */
+
+.preview-paper {
+  width: 210mm;
+
+  min-height: 297mm;
+
+  margin: auto;
+
+  background: #fff;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+.preview-paper {
+  animation: fade 0.35s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 992px) {
+  .preview-paper {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .back-btn,
+  .use-btn {
+    justify-content: center;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .template-preview-page {
+    padding: 15px;
+  }
+
+  .preview-paper {
+    padding: 18px;
+
+    border-radius: 12px;
+  }
+}

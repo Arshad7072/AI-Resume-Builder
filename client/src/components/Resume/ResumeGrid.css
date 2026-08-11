@@ -1,0 +1,45 @@
+.resume-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+
+gap:1.5rem;
+
+}
+
+.empty-resume{
+
+background:white;
+
+padding:4rem;
+
+border-radius:1rem;
+
+text-align:center;
+
+box-shadow:0 .2rem .6rem rgba(0,0,0,.05);
+
+}
+
+.empty-resume h2{
+
+margin-bottom:1rem;
+
+}
+
+.empty-resume p{
+
+color:#6b7280;
+
+}
+
+@media(max-width:768px){
+
+.resume-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

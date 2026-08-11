@@ -1,0 +1,63 @@
+.panel-card {
+  background: white;
+
+  border-radius: 1rem;
+
+  padding: 1.5rem;
+
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.05);
+}
+
+.panel-icon {
+  font-size: 2rem;
+
+  color: #7c3aed;
+
+  margin-bottom: 1rem;
+}
+
+.panel-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.panel-card p {
+  color: #6b7280;
+
+  line-height: 1.5;
+}
+
+.panel-card button {
+  margin-top: 1rem;
+
+  width: 100%;
+
+  background: #7c3aed;
+
+  color: white;
+
+  border: none;
+
+  padding: 0.8rem;
+
+  border-radius: 0.7rem;
+
+  cursor: pointer;
+}
+
+.score {
+  font-size: 2.5rem;
+
+  font-weight: bold;
+
+  color: #10b981;
+
+  margin: 0.8rem 0;
+}
+
+.panel-card ul {
+  padding-left: 1rem;
+}
+
+.panel-card li {
+  margin-bottom: 0.8rem;
+}

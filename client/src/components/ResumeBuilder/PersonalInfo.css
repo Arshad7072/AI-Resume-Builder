@@ -1,0 +1,150 @@
+/* ===========================
+   Card
+=========================== */
+
+.form-card {
+  background: #fff;
+
+  border-radius: 1rem;
+
+  padding: 2rem;
+
+  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  font-size: 1.7rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: #6b7280;
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.resume-form {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  padding: 0.9rem 1rem;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 0.8rem;
+
+  outline: none;
+
+  font-size: 1rem;
+
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #7c3aed;
+
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.full-width {
+  grid-column: 1/-1;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.form-buttons {
+  margin-top: 2rem;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 1rem;
+}
+
+.primary-btn {
+  background: #fff;
+  color: #7c3aed;
+  border: 1px solid #7c3aed;
+  padding: 0.9rem 1.6rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.secondary-btn {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+
+  padding: 0.9rem 1.6rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 768px) {
+  .resume-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+}

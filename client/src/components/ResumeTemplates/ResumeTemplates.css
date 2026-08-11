@@ -1,0 +1,405 @@
+/* ==========================================
+   Modern Resume Template
+========================================== */
+
+.modern-template {
+  width: 100%;
+  color: #1f2937;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.template-header {
+  text-align: center;
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.template-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.8rem;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.contact span::after {
+  content: "|";
+  margin-left: 0.8rem;
+}
+
+.contact span:last-child::after {
+  content: "";
+}
+
+/* ==========================================
+   Sections
+========================================== */
+
+.modern-template section {
+  margin-bottom: 2rem;
+}
+
+.modern-template section h2 {
+  color: #7c3aed;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #ede9fe;
+}
+
+/* ==========================================
+   Resume Item
+========================================== */
+
+.item {
+  margin-bottom: 1.3rem;
+}
+
+.item h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.item h4 {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+
+.item p {
+  margin-top: 0.4rem;
+  color: #374151;
+}
+
+.item small {
+  color: #9ca3af;
+}
+
+/* ==========================================
+   Skills / Languages
+========================================== */
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.skills-list span {
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 768px) {
+  .template-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .contact span::after {
+    display: none;
+  }
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 576px) {
+  .template-header {
+    text-align: left;
+  }
+
+  .template-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .modern-template section h2 {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==========================================
+   Print
+========================================== */
+
+@media print {
+  .modern-template {
+    color: #000;
+  }
+
+  .template-header {
+    border-bottom: 2px solid #000;
+  }
+
+  .modern-template section h2 {
+    color: #000;
+    border-bottom: 1px solid #000;
+  }
+
+  .skills-list span {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+  }
+}
+
+/* ==========================================
+   Professional Template
+========================================== */
+
+.professional-template {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 100%;
+}
+
+.left-column {
+  background: #1f2937;
+  color: #fff;
+  padding: 1rem;
+}
+
+.left-column h2 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.4rem;
+  text-align: center;
+}
+
+.left-column p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sidebar-tags span {
+  background: #374151;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.right-column {
+  padding: 2rem;
+}
+
+.right-column header {
+  border-bottom: 2px solid #7c3aed;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.right-column h1 {
+  font-size: 2.2rem;
+  color: #111827;
+  margin-bottom: 0.7rem;
+}
+
+.right-column h2 {
+  color: #7c3aed;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .professional-template {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column {
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================
+   Minimal Template
+========================================== */
+
+.minimal-template {
+  font-family: "Helvetica", sans-serif;
+
+  color: #222;
+
+  line-height: 1.7;
+}
+
+.minimal-header {
+  text-align: center;
+
+  margin-bottom: 2rem;
+}
+
+.minimal-header h1 {
+  font-size: 2.3rem;
+
+  font-weight: 700;
+
+  margin-bottom: 0.4rem;
+}
+
+.minimal-header p {
+  color: #666;
+
+  margin: 0.25rem 0;
+}
+
+.minimal-template section {
+  margin-bottom: 2rem;
+}
+
+.minimal-template h2 {
+  font-size: 1.15rem;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  color: #111;
+
+  border-bottom: 1px solid #d1d5db;
+
+  padding-bottom: 0.35rem;
+
+  margin-bottom: 1rem;
+}
+
+.minimal-item {
+  margin-bottom: 1.2rem;
+}
+
+.minimal-item h3 {
+  font-size: 1rem;
+
+  color: #111;
+
+  margin-bottom: 0.3rem;
+}
+
+.minimal-item p {
+  color: #555;
+}
+
+.minimal-item small {
+  color: #888;
+}
+
+.minimal-skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+}
+
+.minimal-skills span {
+  border: 1px solid #999;
+
+  border-radius: 5px;
+
+  padding: 0.35rem 0.8rem;
+
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .minimal-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .minimal-template {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================================
+   Template Selector
+========================================== */
+
+.template-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin: 20px 0 30px;
+}
+
+.template-card {
+  padding: 10px 22px;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 999px;
+
+  background: #fff;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  user-select: none;
+}
+
+.template-card:hover {
+  border-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.active-template {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+}
+
+.template-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.template-card p {
+  display: none;
+}
+
+.template-preview {
+  display: none;
+}

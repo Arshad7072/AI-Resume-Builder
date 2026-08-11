@@ -1,0 +1,231 @@
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar {
+  width: 17rem;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5rem;
+
+  transition: all 0.3s ease;
+
+  z-index: 1000;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  margin-bottom: 1.2rem;
+}
+
+.sidebar-header img {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ===========================
+   Menu
+=========================== */
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+
+  padding: 0.85rem 1rem;
+
+  margin-bottom: 0.35rem;
+
+  border-radius: 0.8rem;
+
+  text-decoration: none;
+
+  color: #4b5563;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.menu-link svg {
+  font-size: 1.05rem;
+  min-width: 1.2rem;
+}
+
+.menu-link:hover {
+  background: #7c3aed;
+  color: #ffffff;
+}
+.sidebar-menu button {
+  border: none;
+  background-color: white;
+  margin-bottom: 0.35rem;
+}
+.sidebar-menu button span {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.8rem;
+}
+.menu-link.active {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+/* ===========================
+   Premium Card
+=========================== */
+
+/* .premium-card {
+  margin-top: auto;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 1rem;
+
+  padding: 1.2rem;
+}
+
+.premium-icon {
+  font-size: 2rem;
+  color: #7c3aed;
+
+  margin-bottom: 0.8rem;
+}
+
+.premium-card h3 {
+  font-size: 1.05rem;
+  color: #111827;
+
+  margin-bottom: 0.8rem;
+}
+
+.premium-card ul {
+  margin: 0 0 1rem 1rem;
+  padding: 0;
+}
+
+.premium-card li {
+  margin-bottom: 0.45rem;
+
+  color: #6b7280;
+
+  font-size: 0.9rem;
+}
+
+.premium-card button {
+  width: 100%;
+
+  padding: 0.85rem;
+
+  border: none;
+
+  border-radius: 0.7rem;
+
+  background: #7c3aed;
+
+  color: white;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.premium-card button:hover {
+  background: #6d28d9;
+} */
+
+/* ===========================
+   Laptop
+=========================== */
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 17rem;
+  }
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+  .sidebar {
+    left: -100%;
+
+    width: 17rem;
+
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    max-width: 17rem;
+
+    padding: 1.2rem;
+  }
+
+  .sidebar-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .menu-link {
+    font-size: 0.95rem;
+
+    padding: 0.8rem;
+  }
+
+  .premium-card {
+    padding: 1rem;
+  }
+}

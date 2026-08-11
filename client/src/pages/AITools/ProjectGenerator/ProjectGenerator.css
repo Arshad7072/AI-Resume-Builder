@@ -1,0 +1,321 @@
+/* ===========================
+   Project Generator
+=========================== */
+
+.project-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 35px;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.project-header {
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background: #fff;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  color: #374151;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+
+  transition: .3s;
+}
+
+.back-btn:hover {
+  background: #7c3aed;
+  color: white;
+}
+
+.project-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.project-header h1 svg {
+  color: #7c3aed;
+}
+
+.project-header p {
+  color: #6b7280;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.project-form,
+.project-output {
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
+
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.project-form label {
+
+  display: block;
+
+  margin-top: 18px;
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+  color: #374151;
+
+}
+
+.project-form input,
+.project-form select,
+.project-form textarea {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: .95rem;
+
+  transition: .3s;
+
+}
+
+.project-form input:focus,
+.project-form select:focus,
+.project-form textarea:focus {
+
+  border-color: #7c3aed;
+
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, .15);
+
+}
+
+.project-form textarea {
+  resize: vertical;
+}
+
+/* ===========================
+   Generate Button
+=========================== */
+
+.generate-btn {
+
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #7c3aed;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+}
+
+.generate-btn:hover {
+
+  background: #6d28d9;
+
+}
+
+/* ===========================
+   Output
+=========================== */
+
+.project-output h2 {
+
+  margin-bottom: 20px;
+
+  color: #111827;
+
+}
+
+.project-output textarea {
+
+  width: 100%;
+
+  min-height: 430px;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  border: 1px solid #d1d5db;
+
+  resize: none;
+
+  outline: none;
+
+  font-size: .95rem;
+
+  line-height: 1.8;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.output-actions {
+
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 20px;
+
+}
+
+.output-actions button {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: .3s;
+
+}
+
+.output-actions button:first-child {
+
+  background: #eef2ff;
+
+  color: #4338ca;
+
+}
+
+.output-actions button:first-child:hover {
+
+  background: #dbeafe;
+
+}
+
+.output-actions button:last-child {
+
+  background: #7c3aed;
+
+  color: white;
+
+}
+
+.output-actions button:last-child:hover {
+
+  background: #6d28d9;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:992px) {
+
+  .project-container {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+@media (max-width:576px) {
+
+  .project-page {
+
+    padding: 20px;
+
+  }
+
+  .project-header h1 {
+
+    font-size: 1.6rem;
+
+  }
+
+  .output-actions {
+
+    flex-direction: column;
+
+  }
+
+}

@@ -1,0 +1,87 @@
+.resume-card {
+  background: white;
+
+  padding: 1.5rem;
+
+  border-radius: 1rem;
+
+  box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s;
+}
+
+.resume-card:hover {
+  transform: translateY(-4px);
+}
+
+.resume-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.resume-header span {
+  font-size: 0.8rem;
+
+  color: #9ca3af;
+}
+
+.resume-card p {
+  color: #6b7280;
+
+  margin-bottom: 1rem;
+}
+
+.resume-skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.resume-skills span {
+  background: #ede9fe;
+
+  color: #7c3aed;
+
+  padding: 0.4rem 0.8rem;
+
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+}
+
+.resume-actions {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.resume-actions button {
+  width: 45px;
+
+  height: 45px;
+
+  border: none;
+
+  border-radius: 0.7rem;
+
+  background: #f3f4f6;
+
+  cursor: pointer;
+}
+
+.resume-actions button:hover {
+  background: #7c3aed;
+
+  color: white;
+}
+
+.delete:hover {
+  background: #ef4444 !important;
+}

@@ -1,0 +1,278 @@
+/* ==========================================
+   Global
+========================================== */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background:#f8fafc;
+}
+
+/* ==========================================
+   Dashboard Layout
+========================================== */
+
+.dashboard-layout{
+    display:flex;
+    min-height:100vh;
+    background:#f8fafc;
+    overflow:hidden;
+}
+
+.dashboard-wrapper{
+    flex:1;
+    margin-left:17rem;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+/* ==========================================
+   Main
+========================================== */
+
+.dashboard-body{
+    flex:1;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+   Banner / Stats / Analytics
+========================================== */
+
+.dashboard-banner,
+.dashboard-stats,
+.dashboard-chart{
+    width:100%;
+}
+
+/* ==========================================
+   Main Grid
+========================================== */
+
+.dashboard-content-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 340px;
+
+    gap:24px;
+
+    align-items:start;
+
+    width:100%;
+
+}
+
+/* ==========================================
+   Left Column
+========================================== */
+
+.dashboard-primary{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+    min-width:0;
+
+}
+
+/* ==========================================
+   Right Column
+========================================== */
+
+.dashboard-secondary{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+    min-width:0;
+
+}
+
+/* ==========================================
+   Card Wrapper
+========================================== */
+
+.dashboard-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    border:1px solid #e5e7eb;
+
+    padding:22px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+.dashboard-banner,
+.dashboard-stats,
+.dashboard-chart,
+.dashboard-card,
+.dashboard-secondary>*{
+
+    animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+
+.dashboard-body::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.dashboard-body::-webkit-scrollbar-thumb{
+
+    background:#c4b5fd;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   Desktop
+========================================== */
+
+@media(max-width:1200px){
+
+.dashboard-content-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media(max-width:992px){
+
+.dashboard-wrapper{
+
+margin-left:0;
+
+}
+
+.dashboard-body{
+
+padding:18px;
+
+gap:18px;
+
+}
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:768px){
+
+.dashboard-body{
+
+padding:16px;
+
+}
+
+.dashboard-content-grid{
+
+gap:18px;
+
+}
+
+.dashboard-primary,
+.dashboard-secondary{
+
+gap:18px;
+
+}
+
+.dashboard-card{
+
+padding:18px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.dashboard-body{
+
+padding:14px;
+
+}
+
+.dashboard-card{
+
+padding:16px;
+
+border-radius:14px;
+
+}
+
+}

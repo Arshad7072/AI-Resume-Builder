@@ -1,0 +1,88 @@
+@import "./PersonalInfo.css";
+
+.skill-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.skill-input input {
+  flex: 1;
+}
+
+.skill-input button {
+  border: none;
+  background: #7c3aed;
+  color: white;
+  padding: 0 1.5rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.section-title {
+  margin: 2rem 0 1rem;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.skills-container,
+.suggested-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background: #ede9fe;
+  color: #7c3aed;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 999px;
+
+  font-weight: 500;
+}
+
+.skill-tag svg {
+  cursor: pointer;
+}
+
+.suggested-skill {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.suggested-skill:hover {
+  background: #7c3aed;
+  color: white;
+}
+
+.selected {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+}
+
+@media (max-width: 768px) {
+  .skill-input {
+    flex-direction: column;
+  }
+
+  .skill-input button {
+    width: 100%;
+    padding: 0.9rem;
+  }
+}

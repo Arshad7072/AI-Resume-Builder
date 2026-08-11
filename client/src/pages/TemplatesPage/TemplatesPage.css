@@ -1,0 +1,177 @@
+/* ===========================
+   Templates Page
+=========================== */
+
+.templates-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 35px;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.templates-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.templates-header h1 {
+  font-size: 2.3rem;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.templates-header p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===========================
+   Grid
+=========================== */
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* ===========================
+   Template Card
+=========================== */
+
+.template-card {
+  background: #fff;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s;
+}
+
+.template-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+
+  border-color: #7c3aed;
+}
+
+/* ===========================
+   Resume Preview
+=========================== */
+
+.template-card > div:first-child {
+  height: 450px;
+
+  overflow: hidden;
+
+  background: white;
+
+  border-bottom: 1px solid #eee;
+
+  transform: scale(0.55);
+
+  transform-origin: top center;
+
+  margin-bottom: -190px;
+
+  pointer-events: none;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.template-card h3 {
+  text-align: center;
+
+  margin: 20px 0 10px;
+
+  color: #111827;
+
+  font-size: 1.3rem;
+}
+
+.template-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 20px;
+}
+
+.template-actions button {
+  border: none;
+
+  cursor: pointer;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.preview-btn {
+  background: #eef2ff;
+
+  color: #4338ca;
+}
+
+.preview-btn:hover {
+  background: #dbeafe;
+}
+
+.use-btn {
+  background: #7c3aed;
+
+  color: white;
+}
+
+.use-btn:hover {
+  background: #6d28d9;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+  .templates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .templates-page {
+    padding: 20px;
+  }
+
+  .templates-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .template-card > div:first-child {
+    transform: scale(0.45);
+
+    margin-bottom: -260px;
+  }
+
+  .template-actions {
+    flex-direction: column;
+  }
+}

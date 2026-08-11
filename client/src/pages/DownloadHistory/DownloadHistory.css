@@ -1,0 +1,214 @@
+.history-page{
+    min-height:100vh;
+    background:#f8fafc;
+    padding:35px;
+}
+
+/* Header */
+
+.history-header{
+    margin-bottom:30px;
+}
+
+.history-header h1{
+    font-size:2rem;
+    color:#111827;
+}
+
+.history-header p{
+    margin-top:8px;
+    color:#6b7280;
+}
+
+/* Search */
+
+.history-search{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:12px 18px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.history-search svg{
+    color:#7c3aed;
+}
+
+.history-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+}
+
+/* Grid */
+
+.history-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:25px;
+
+}
+
+/* Card */
+
+.history-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#7c3aed;
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+/* Top */
+
+.history-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:20px;
+
+}
+
+.resume-icon{
+
+    color:#7c3aed;
+
+}
+
+.history-top h3{
+
+    font-size:1.1rem;
+
+    color:#111827;
+
+    margin-bottom:5px;
+
+}
+
+.history-top span{
+
+    color:#6b7280;
+
+    font-size:.9rem;
+
+}
+
+/* Info */
+
+.history-info{
+
+    margin-bottom:22px;
+
+}
+
+.history-info p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:12px;
+
+    color:#4b5563;
+
+}
+
+.history-info svg{
+
+    color:#7c3aed;
+
+}
+
+/* Button */
+
+.history-card button{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    background:#7c3aed;
+
+    color:#fff;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.history-card button:hover{
+
+    background:#6d28d9;
+
+}
+
+/* Responsive */
+
+@media(max-width:576px){
+
+.history-page{
+
+padding:20px;
+
+}
+
+.history-header h1{
+
+font-size:1.7rem;
+
+}
+
+}

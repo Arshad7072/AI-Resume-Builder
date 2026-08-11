@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 
 const connectDB = require("./config/db");
 
+
+
 // Load Environment Variables
 dotenv.config();
 
@@ -50,6 +52,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", require("./routes/authRoutes"));
 
+
 // temporary test route to check if the request body is being received correctly
 
 // app.post("/test", (req, res) => {
@@ -59,6 +62,9 @@ app.use("/api/auth", require("./routes/authRoutes"));
 //     res.json(req.body);
 // });
 
+// Resume Routes
+const resumeRoutes = require("./routes/resumeRoutes");
+app.use("/api/resume", resumeRoutes);
 
 
 // 404 Route

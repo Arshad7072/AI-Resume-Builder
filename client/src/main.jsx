@@ -6,16 +6,19 @@ import { Toaster } from "react-hot-toast";
 import "./index.css";
 import App from "./App.jsx";
 import { AuthProvider } from "./context/AuthContext";
+import { ResumeProvider } from "./context/ResumeContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
-        <Toaster
-          position="top-right"
-          reverseOrder={false}
-        />
+        <ResumeProvider>
+          <App />
+          <Toaster
+            position="top-right"
+            reverseOrder={false}
+          />
+        </ResumeProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

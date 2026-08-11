@@ -1,0 +1,51 @@
+@import "./PersonalInfo.css";
+
+.education-card {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.education-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.education-top h3 {
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  padding: 0.85rem 1.4rem;
+
+  border: none;
+  border-radius: 0.75rem;
+
+  background: #7c3aed;
+  color: white;
+
+  cursor: pointer;
+}
+
+.delete-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ef4444;
+  color: white;
+
+  cursor: pointer;
+}

@@ -1,0 +1,385 @@
+/* ==========================================
+   Settings Page
+========================================== */
+
+.settings-page{
+    min-height:100vh;
+    background:#f8fafc;
+    padding:40px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.settings-header{
+    margin-bottom:30px;
+}
+
+.settings-header h1{
+    font-size:2.3rem;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.settings-header p{
+    color:#6b7280;
+    font-size:1rem;
+}
+
+/* ==========================================
+   Card
+========================================== */
+
+.settings-card{
+    background:#fff;
+    max-width:1000px;
+    margin:auto;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+/* ==========================================
+   Setting Item
+========================================== */
+
+.setting-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    padding:25px 0;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.setting-item:last-child{
+    border-bottom:none;
+}
+
+.setting-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex:1;
+
+}
+
+.setting-info svg{
+
+    color:#7c3aed;
+
+    flex-shrink:0;
+
+}
+
+.setting-info h3{
+
+    font-size:1.05rem;
+
+    color:#111827;
+
+    margin-bottom:6px;
+
+}
+
+.setting-info p{
+
+    color:#6b7280;
+
+    font-size:.93rem;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.action-btn{
+
+    border:none;
+
+    background:#7c3aed;
+
+    color:#fff;
+
+    min-width:120px;
+
+    padding:11px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.action-btn:hover{
+
+    background:#6d28d9;
+
+}
+
+.delete-btn{
+
+    border:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    min-width:120px;
+
+    padding:11px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+}
+
+/* ==========================================
+   Danger Box
+========================================== */
+
+.danger{
+
+    background:#fef2f2;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    margin-top:15px;
+
+}
+
+.danger h3,
+.danger svg{
+
+    color:#ef4444;
+
+}
+
+/* ==========================================
+   Toggle Switch
+========================================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:60px;
+
+    height:34px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#d1d5db;
+
+    border-radius:34px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:26px;
+
+    height:26px;
+
+    left:4px;
+
+    top:4px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#7c3aed;
+
+}
+
+.switch input:checked + .slider::before{
+
+    transform:translateX(26px);
+
+}
+
+/* ==========================================
+   Save Button
+========================================== */
+
+.save-btn{
+
+    margin:40px auto 0;
+
+    width:240px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#7c3aed;
+
+    color:#fff;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.save-btn:hover{
+
+    background:#6d28d9;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:768px){
+
+.settings-card{
+
+padding:25px;
+
+}
+
+.setting-item{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.action-btn,
+.delete-btn{
+
+width:100%;
+
+}
+
+.save-btn{
+
+width:100%;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.settings-page{
+
+padding:20px;
+
+}
+
+.settings-header h1{
+
+font-size:1.8rem;
+
+}
+
+.settings-card{
+
+padding:20px;
+
+}
+
+.setting-info{
+
+align-items:flex-start;
+
+}
+
+.setting-info svg{
+
+margin-top:3px;
+
+}
+
+}

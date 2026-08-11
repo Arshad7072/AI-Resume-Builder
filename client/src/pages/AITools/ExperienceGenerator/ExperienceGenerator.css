@@ -1,0 +1,282 @@
+/* ===========================
+   Experience Generator
+=========================== */
+
+.experience-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 35px;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.experience-header {
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background: #ffffff;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  color: #374151;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.experience-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.experience-header h1 svg {
+  color: #7c3aed;
+}
+
+.experience-header p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===========================
+   Layout
+=========================== */
+
+.experience-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.experience-form,
+.experience-output {
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.experience-form label {
+  display: block;
+
+  margin-bottom: 8px;
+  margin-top: 18px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.experience-form input,
+.experience-form select,
+.experience-form textarea {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 10px;
+
+  font-size: 0.95rem;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.experience-form input:focus,
+.experience-form select:focus,
+.experience-form textarea:focus {
+  border-color: #7c3aed;
+
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.experience-form textarea {
+  resize: vertical;
+}
+
+/* ===========================
+   Generate Button
+=========================== */
+
+.generate-btn {
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #7c3aed;
+
+  color: #fff;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.generate-btn:hover {
+  background: #6d28d9;
+}
+
+/* ===========================
+   Output
+=========================== */
+
+.experience-output h2 {
+  margin-bottom: 20px;
+
+  color: #111827;
+}
+
+.experience-output textarea {
+  width: 100%;
+
+  min-height: 350px;
+
+  resize: none;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 12px;
+
+  padding: 15px;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+
+  outline: none;
+}
+
+/* ===========================
+   Output Buttons
+=========================== */
+
+.output-actions {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 20px;
+}
+
+.output-actions button {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.output-actions button:first-child {
+  background: #eef2ff;
+
+  color: #4f46e5;
+}
+
+.output-actions button:first-child:hover {
+  background: #dbeafe;
+}
+
+.output-actions button:last-child {
+  background: #7c3aed;
+
+  color: #fff;
+}
+
+.output-actions button:last-child:hover {
+  background: #6d28d9;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+  .experience-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience-page {
+    padding: 20px;
+  }
+
+  .experience-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .output-actions {
+    flex-direction: column;
+  }
+}

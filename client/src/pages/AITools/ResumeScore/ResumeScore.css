@@ -1,0 +1,138 @@
+.score-page {
+  padding: 35px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.score-header {
+  margin-bottom: 30px;
+}
+
+.score-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 10px;
+  font-size: 2rem;
+}
+
+.score-header h1 svg {
+  color: #7c3aed;
+}
+
+.score-header p {
+  color: #6b7280;
+}
+
+.score-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.upload-card,
+.score-card,
+.suggestion-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.upload-card {
+  text-align: center;
+}
+
+.upload-card svg {
+  color: #7c3aed;
+  margin-bottom: 15px;
+}
+
+.upload-card input {
+  margin: 20px 0;
+}
+
+.upload-card button {
+  width: 100%;
+  padding: 14px;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.score-card {
+  text-align: center;
+}
+
+.score-circle {
+  width: 170px;
+  height: 170px;
+  margin: auto;
+  border-radius: 50%;
+  border: 10px solid #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #7c3aed;
+}
+
+.score-circle span {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.status {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.suggestion-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.suggestion-card ul {
+  padding-left: 20px;
+}
+
+.suggestion-card li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 992px) {
+  .score-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .score-page {
+    padding: 20px;
+  }
+
+  .score-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    font-size: 2.5rem;
+  }
+}
