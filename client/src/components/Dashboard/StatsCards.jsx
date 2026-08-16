@@ -21,6 +21,8 @@ const StatsCards = () => {
   latestResume: null,
 });
 
+ 
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -70,7 +72,7 @@ const StatsCards = () => {
         </div>
 
         <div>
-          <h2>{stats.totalResumes}</h2>
+          <h2>{stats?.totalResumes || 0}</h2>
           <p>Total Resumes</p>
         </div>
 
@@ -96,7 +98,7 @@ const StatsCards = () => {
         </div>
 
         <div>
-          <h2>{stats.totalDownloads}</h2>
+          <h2>{stats?.totalDownloads || 0}</h2>
           <p>Total Downloads</p>
         </div>
 

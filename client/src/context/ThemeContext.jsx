@@ -20,7 +20,9 @@ export const ThemeProvider = ({ children }) => {
           },
         });
 
-        setDarkMode(data.settings.darkMode);
+        if (data?.settings) {
+          setDarkMode(data.settings.darkMode);
+        }
       } catch (err) {
         console.log(err);
       }
