@@ -7,7 +7,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 // after login pages
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import Dashboard from "./pages/Dashboard/Dashbboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
