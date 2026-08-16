@@ -2,7 +2,7 @@ import React from "react";
 import { StarPlus } from "lucide-react";
 import "./Features.css";
 import { ChevronRight } from "lucide-react";
-import AI_poweredImg from "../assets/Chatbot.png";
+import AI_poweredImg from "../assets/chatbot.png";
 import ATS_scoreImg from "../assets/ATS_score.png";
 import downloadImg from "../assets/download.png";
 import smartAnalytics from "../assets/smart analytics.png";
