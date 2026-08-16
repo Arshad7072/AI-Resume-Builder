@@ -19,18 +19,27 @@ const TemplatePreview = () => {
     personal: {
       firstName: "John",
       lastName: "Doe",
+
       email: "john@example.com",
       phone: "+91 9876543210",
+
       city: "New Delhi",
       state: "Delhi",
       country: "India",
+
+      photo: "https://i.pravatar.cc/300?img=12",
+
+      linkedin: "https://linkedin.com/in/johndoe",
+      github: "https://github.com/johndoe",
+      portfolio: "https://johndoe.dev",
+
       summary:
-        "Passionate Full Stack Developer with experience in React, Node.js and MongoDB.",
+        "Passionate Full Stack Developer with experience in React, Node.js, Express.js, MongoDB, and modern web technologies. Skilled in building scalable, responsive, and user-friendly web applications.",
     },
 
     education: [
       {
-        degree: "BCA",
+        degree: "Bachelor of Computer Applications",
         institute: "XYZ University",
         startYear: "2020",
         endYear: "2023",
@@ -41,26 +50,46 @@ const TemplatePreview = () => {
       {
         jobTitle: "Frontend Developer",
         company: "ABC Pvt Ltd",
-        description: "Developed responsive web applications using React.",
+        description:
+          "Developed responsive web applications using React.js, JavaScript, REST APIs, and modern UI frameworks.",
       },
     ],
 
-    skills: ["React", "Node.js", "MongoDB", "JavaScript"],
+    skills: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git",
+    ],
 
     projects: [
       {
         projectName: "AI Resume Builder",
-        technologies: "React, Express, MongoDB",
-        description: "Resume Builder with AI integration.",
+        technologies: "React, Express.js, MongoDB",
+        description:
+          "Built an AI-powered Resume Builder with multiple resume templates, PDF download, ATS checker, dashboard analytics, and authentication.",
       },
     ],
 
-    certificates: [],
+    certificates: [
+      {
+        certificateName: "Full Stack Web Development",
+        organization: "Udemy",
+      },
+    ],
 
     languages: [
       {
         language: "English",
         proficiency: "Professional",
+      },
+      {
+        language: "Hindi",
+        proficiency: "Native",
       },
     ],
   };

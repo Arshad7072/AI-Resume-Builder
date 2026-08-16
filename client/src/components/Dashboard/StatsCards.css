@@ -4,30 +4,29 @@
 
 .stats-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 1.5rem;
-
   margin-bottom: 2rem;
 }
 
-/* Card */
+/* ===========================
+   Card
+=========================== */
 
 .stats-card {
-  background: white;
+  background: var(--card);
+  color: var(--text);
 
+  border: 1px solid var(--border);
   border-radius: 1rem;
 
   padding: 1.5rem;
 
   display: flex;
-
   align-items: center;
-
   gap: 1rem;
 
-  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
 
   transition: 0.3s;
 }
@@ -36,23 +35,21 @@
   transform: translateY(-0.3rem);
 }
 
-/* Icon */
+/* ===========================
+   Icon
+=========================== */
 
 .stats-icon {
   width: 3.5rem;
-
   height: 3.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border-radius: 50%;
 
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  color: white;
-
+  color: #fff;
   font-size: 1.4rem;
 }
 
@@ -72,18 +69,18 @@
   background: #f59e0b;
 }
 
-/* Text */
+/* ===========================
+   Text
+=========================== */
 
 .stats-card h2 {
   font-size: 1.8rem;
-
-  color: #111827;
+  color: var(--text);
 }
 
 .stats-card p {
-  color: #6b7280;
-
   margin-top: 0.2rem;
+  color: var(--text-light);
 }
 
 /* ===========================

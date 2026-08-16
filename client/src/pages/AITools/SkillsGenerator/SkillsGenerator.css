@@ -4,8 +4,9 @@
 
 .skills-page {
   min-height: 100vh;
-  background: #f8fafc;
   padding: 35px;
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* ===========================
@@ -21,26 +22,20 @@
   align-items: center;
   gap: 8px;
 
-  border: none;
-  background: #fff;
-
   padding: 10px 18px;
 
+  border: 1px solid var(--border);
   border-radius: 10px;
 
+  background: var(--card);
+  color: var(--text);
+
   cursor: pointer;
-
-  font-weight: 600;
-
-  color: #374151;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .back-btn:hover {
-  background: #7c3aed;
+  background: var(--primary);
   color: #fff;
 }
 
@@ -49,22 +44,17 @@
   align-items: center;
   gap: 12px;
 
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 
   font-size: 2rem;
-  font-weight: 700;
-
-  color: #111827;
 }
 
 .skills-header h1 svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .skills-header p {
-  color: #6b7280;
-  font-size: 1rem;
+  color: var(--text-light);
 }
 
 /* ===========================
@@ -73,7 +63,7 @@
 
 .skills-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2,1fr);
   gap: 30px;
 }
 
@@ -83,30 +73,31 @@
 
 .skills-form,
 .skills-output {
-  background: #fff;
+  background: var(--card);
 
+  border: 1px solid var(--border);
   border-radius: 18px;
 
+  box-shadow: var(--shadow);
+
   padding: 30px;
-
-  border: 1px solid #e5e7eb;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
 /* ===========================
    Form
 =========================== */
 
-.skills-form label {
-  display: block;
+.skills-form {
+  display: flex;
+  flex-direction: column;
+}
 
-  margin-top: 18px;
+.skills-form label {
   margin-bottom: 8px;
 
   font-weight: 600;
 
-  color: #374151;
+  color: var(--text);
 }
 
 .skills-form input,
@@ -116,23 +107,29 @@
 
   padding: 14px;
 
-  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
 
+  border: 1px solid var(--border);
   border-radius: 10px;
+
+  background: var(--card);
+  color: var(--text);
 
   outline: none;
 
-  font-size: 0.95rem;
+  transition: .3s;
+}
 
-  transition: 0.3s;
+.skills-form input::placeholder,
+.skills-form textarea::placeholder {
+  color: var(--text-light);
 }
 
 .skills-form input:focus,
 .skills-form select:focus,
 .skills-form textarea:focus {
-  border-color: #7c3aed;
-
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124,58,237,.15);
 }
 
 .skills-form textarea {
@@ -140,121 +137,125 @@
 }
 
 /* ===========================
-   Generate Button
+   Buttons
 =========================== */
 
-.generate-btn {
-  width: 100%;
+.skills-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
 
-  margin-top: 30px;
+.skills-buttons button {
+  flex: 1;
+}
+
+.generate-btn,
+.clear-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 
   padding: 15px;
 
-  border: none;
-
   border-radius: 12px;
-
-  background: #7c3aed;
-
-  color: #fff;
-
-  font-size: 1rem;
 
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: .3s;
+}
+
+.generate-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
 }
 
 .generate-btn:hover {
-  background: #6d28d9;
+  opacity: .9;
+}
+
+.generate-btn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+}
+
+.clear-btn:hover {
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
 }
 
 /* ===========================
    Output
 =========================== */
 
-.skills-output h2 {
-  margin-bottom: 20px;
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  color: #111827;
+  margin-bottom: 20px;
+}
+
+.output-header h2 {
+  color: var(--text);
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--hover);
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: #fff;
 }
 
 .skills-output textarea {
   width: 100%;
-
-  min-height: 430px;
+  min-height: 450px;
 
   padding: 15px;
 
+  border: 1px solid var(--border);
   border-radius: 12px;
 
-  border: 1px solid #d1d5db;
+  background: var(--card);
+  color: var(--text);
 
   resize: none;
 
   outline: none;
 
-  font-size: 0.95rem;
-
   line-height: 1.8;
 }
 
-/* ===========================
-   Buttons
-=========================== */
-
-.output-actions {
-  display: flex;
-
-  gap: 15px;
-
-  margin-top: 20px;
-}
-
-.output-actions button {
-  flex: 1;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 13px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  font-weight: 600;
-
-  transition: 0.3s;
-}
-
-.output-actions button:first-child {
-  background: #eef2ff;
-
-  color: #4338ca;
-}
-
-.output-actions button:first-child:hover {
-  background: #dbeafe;
-}
-
-.output-actions button:last-child {
-  background: #7c3aed;
-
-  color: #fff;
-}
-
-.output-actions button:last-child:hover {
-  background: #6d28d9;
+.skills-output textarea::placeholder {
+  color: var(--text-light);
 }
 
 /* ===========================
@@ -262,12 +263,15 @@
 =========================== */
 
 @media (max-width: 992px) {
+
   .skills-container {
     grid-template-columns: 1fr;
   }
+
 }
 
 @media (max-width: 576px) {
+
   .skills-page {
     padding: 20px;
   }
@@ -276,7 +280,19 @@
     font-size: 1.6rem;
   }
 
-  .output-actions {
+  .skills-buttons {
     flex-direction: column;
   }
+
+  .output-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
 }

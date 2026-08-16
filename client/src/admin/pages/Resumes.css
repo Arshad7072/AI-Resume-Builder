@@ -1,0 +1,220 @@
+/* ===========================
+   Resume Management
+=========================== */
+
+.admin-resumes {
+  width: 100%;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.page-header p {
+  margin-top: 6px;
+  color: var(--text-light);
+}
+
+/* ===========================
+   Search
+=========================== */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  padding: 14px 18px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow);
+}
+
+.search-box svg {
+  color: var(--primary);
+}
+
+.search-box input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  font-size: 15px;
+}
+
+.search-box input::placeholder {
+  color: var(--text-light);
+}
+
+/* ===========================
+   Table
+=========================== */
+
+.table-container {
+  overflow-x: auto;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--hover);
+}
+
+thead th {
+  padding: 16px;
+
+  text-align: left;
+
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+tbody td {
+  padding: 16px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-light);
+}
+
+tbody tr:hover {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+/* ===========================
+   Resume Title
+=========================== */
+
+.resume-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+.resume-title svg {
+  color: var(--primary);
+  font-size: 22px;
+}
+
+/* ===========================
+   ATS Score
+=========================== */
+
+.ats-score {
+  display: inline-block;
+
+  min-width: 50px;
+
+  text-align: center;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(16, 185, 129, 0.15);
+
+  color: #10b981;
+
+  font-weight: 600;
+}
+
+/* ===========================
+   Action Buttons
+=========================== */
+
+td:last-child {
+  display: flex;
+  gap: 10px;
+}
+
+.view-btn,
+.delete-btn {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.view-btn {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+}
+
+.view-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  thead th,
+  tbody td {
+    padding: 12px;
+  }
+
+  .resume-title {
+    font-size: 14px;
+  }
+}

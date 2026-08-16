@@ -4,7 +4,8 @@
 
 .project-page {
   min-height: 100vh;
-  background: #f8fafc;
+  background: var(--bg);
+  color: var(--text);
   padding: 35px;
 }
 
@@ -21,8 +22,8 @@
   align-items: center;
   gap: 8px;
 
-  border: none;
-  background: #fff;
+  border: 1px solid var(--border);
+  background: var(--card);
 
   padding: 10px 18px;
 
@@ -32,16 +33,16 @@
 
   font-weight: 600;
 
-  color: #374151;
+  color: var(--text);
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+  box-shadow: var(--shadow);
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .back-btn:hover {
-  background: #7c3aed;
-  color: white;
+  background: var(--primary);
+  color: #fff;
 }
 
 .project-header h1 {
@@ -55,15 +56,15 @@
   font-size: 2rem;
   font-weight: 700;
 
-  color: #111827;
+  color: var(--text);
 }
 
 .project-header h1 svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .project-header p {
-  color: #6b7280;
+  color: var(--text-light);
 }
 
 /* ===========================
@@ -82,17 +83,17 @@
 
 .project-form,
 .project-output {
-
-  background: white;
+  background: var(--card);
 
   border-radius: 18px;
 
   padding: 30px;
 
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
+  box-shadow: var(--shadow);
 
+  color: var(--text);
 }
 
 /* ===========================
@@ -100,7 +101,6 @@
 =========================== */
 
 .project-form label {
-
   display: block;
 
   margin-top: 18px;
@@ -108,38 +108,42 @@
 
   font-weight: 600;
 
-  color: #374151;
-
+  color: var(--text);
 }
 
 .project-form input,
 .project-form select,
 .project-form textarea {
-
   width: 100%;
 
   padding: 14px;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border);
 
   border-radius: 10px;
 
   outline: none;
 
-  font-size: .95rem;
+  font-size: 0.95rem;
 
-  transition: .3s;
+  transition: 0.3s;
 
+  background: var(--card);
+
+  color: var(--text);
+}
+
+.project-form input::placeholder,
+.project-form textarea::placeholder {
+  color: var(--text-light);
 }
 
 .project-form input:focus,
 .project-form select:focus,
 .project-form textarea:focus {
+  border-color: var(--primary);
 
-  border-color: #7c3aed;
-
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, .15);
-
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
 }
 
 .project-form textarea {
@@ -151,7 +155,6 @@
 =========================== */
 
 .generate-btn {
-
   width: 100%;
 
   margin-top: 30px;
@@ -162,7 +165,7 @@
 
   border-radius: 12px;
 
-  background: #7c3aed;
+  background: var(--primary);
 
   color: white;
 
@@ -172,14 +175,11 @@
 
   cursor: pointer;
 
-  transition: .3s;
-
+  transition: 0.3s;
 }
 
 .generate-btn:hover {
-
-  background: #6d28d9;
-
+  opacity: 0.9;
 }
 
 /* ===========================
@@ -187,15 +187,12 @@
 =========================== */
 
 .project-output h2 {
-
   margin-bottom: 20px;
 
-  color: #111827;
-
+  color: var(--text);
 }
 
 .project-output textarea {
-
   width: 100%;
 
   min-height: 430px;
@@ -204,16 +201,23 @@
 
   border-radius: 12px;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border);
 
   resize: none;
 
   outline: none;
 
-  font-size: .95rem;
+  font-size: 0.95rem;
 
   line-height: 1.8;
 
+  background: var(--card);
+
+  color: var(--text);
+}
+
+.project-output textarea::placeholder {
+  color: var(--text-light);
 }
 
 /* ===========================
@@ -221,17 +225,14 @@
 =========================== */
 
 .output-actions {
-
   display: flex;
 
   gap: 15px;
 
   margin-top: 20px;
-
 }
 
 .output-actions button {
-
   flex: 1;
 
   display: flex;
@@ -252,70 +253,156 @@
 
   font-weight: 600;
 
-  transition: .3s;
-
+  transition: 0.3s;
 }
 
 .output-actions button:first-child {
+  background: var(--hover);
 
-  background: #eef2ff;
-
-  color: #4338ca;
-
+  color: var(--primary);
 }
 
 .output-actions button:first-child:hover {
-
-  background: #dbeafe;
-
+  opacity: 0.9;
 }
 
 .output-actions button:last-child {
-
-  background: #7c3aed;
+  background: var(--primary);
 
   color: white;
-
 }
 
 .output-actions button:last-child:hover {
-
-  background: #6d28d9;
-
+  opacity: 0.9;
 }
 
 /* ===========================
    Responsive
 =========================== */
 
-@media (max-width:992px) {
-
+@media (max-width: 992px) {
   .project-container {
-
     grid-template-columns: 1fr;
-
   }
-
 }
 
-@media (max-width:576px) {
-
+@media (max-width: 576px) {
   .project-page {
-
     padding: 20px;
-
   }
 
   .project-header h1 {
-
     font-size: 1.6rem;
-
   }
 
   .output-actions {
-
     flex-direction: column;
+  }
+}
+/* ===========================
+   Project Buttons
+=========================== */
 
+.project-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.project-buttons button {
+  flex: 1;
+}
+
+.clear-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  padding: 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--card);
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.generate-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.generate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   Output Header
+=========================== */
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--hover);
+  color: var(--primary);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 576px) {
+
+  .project-buttons {
+    flex-direction: column;
   }
 
+  .output-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

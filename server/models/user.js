@@ -21,6 +21,30 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       minlength: 8,
     },
+    profilePhoto: {
+      type: String,
+      default: "",
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
+
+    phone: {
+      type: String,
+      default: "",
+    },
+
+    location: {
+      type: String,
+      default: "",
+    },
+
+    university: {
+      type: String,
+      default: "",
+    },
 
     isVerified: {
       type: Boolean,
@@ -35,10 +59,34 @@ const userSchema = new mongoose.Schema(
     otpExpiry: {
       type: Date,
     },
+    notifications: {
+      type: Boolean,
+      default: true,
+    },
+
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
+
+    autoSave: {
+      type: Boolean,
+      default: true,
+    },
+
+    language: {
+      type: String,
+      default: "English",
+    },
+
+    defaultTemplate: {
+      type: String,
+      default: "modern",
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("User", userSchema);

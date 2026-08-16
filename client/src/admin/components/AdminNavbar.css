@@ -1,0 +1,236 @@
+/* ===========================
+   Navbar
+=========================== */
+
+.admin-navbar {
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+
+  background: var(--card);
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: var(--shadow);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Left */
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.navbar-left h2 {
+  color: var(--text);
+  font-size: 22px;
+}
+
+.menu-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.menu-btn:hover {
+  opacity: .9;
+}
+
+/* Center */
+
+.navbar-center span {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* Right */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  position: relative;
+}
+
+/* Notification */
+
+.notification-btn {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--hover);
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: .3s;
+}
+
+.notification-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.notification-count {
+  position: absolute;
+
+  top: -6px;
+  right: -6px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #ef4444;
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile */
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  cursor: pointer;
+
+  padding: 8px 12px;
+
+  border-radius: 12px;
+
+  transition: .3s;
+
+  position: relative;
+}
+
+.admin-profile:hover {
+  background: var(--hover);
+}
+
+.profile-icon {
+  font-size: 40px;
+
+  color: var(--primary);
+}
+
+.admin-profile h4 {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.admin-profile p {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* Dropdown */
+
+.profile-dropdown {
+  position: absolute;
+
+  right: 0;
+  top: 65px;
+
+  width: 180px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+.profile-dropdown button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.profile-dropdown button:hover {
+  background: var(--hover);
+  color: var(--primary);
+}
+
+/* Responsive */
+
+@media (max-width:768px) {
+
+  .navbar-center {
+    display: none;
+  }
+
+  .admin-profile p {
+    display: none;
+  }
+
+  .admin-profile h4 {
+    display: none;
+  }
+
+  .admin-navbar {
+    padding: 0 15px;
+  }
+
+}

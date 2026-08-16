@@ -1,0 +1,171 @@
+/* ===========================
+   Analytics
+=========================== */
+
+.admin-analytics {
+  width: 100%;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.page-header p {
+  margin-top: 8px;
+  color: var(--text-light);
+}
+
+/* ===========================
+   Cards Grid
+=========================== */
+
+.analytics-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.analytics-card {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  box-shadow: var(--shadow);
+
+  transition: .3s;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+}
+
+.analytics-card h2 {
+  margin: 18px 0 8px;
+
+  font-size: 2rem;
+
+  color: var(--text);
+}
+
+.analytics-card p {
+  color: var(--text-light);
+
+  font-size: 15px;
+}
+
+/* ===========================
+   Icons
+=========================== */
+
+.icon {
+  font-size: 34px;
+}
+
+.blue {
+  color: #3b82f6;
+}
+
+.green {
+  color: #10b981;
+}
+
+.orange {
+  color: #f59e0b;
+}
+
+.purple {
+  color: #7c3aed;
+}
+
+.red {
+  color: #ef4444;
+}
+
+.yellow {
+  color: #eab308;
+}
+
+/* ===========================
+   Large Card
+=========================== */
+
+.large-card {
+  margin-top: 10px;
+}
+
+.large-card h2 {
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   Summary Table
+=========================== */
+
+.summary-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.summary-table td {
+  padding: 15px;
+
+  border-bottom: 1px solid var(--border);
+
+  color: var(--text);
+}
+
+.summary-table td:last-child {
+  text-align: right;
+
+  font-weight: 600;
+
+  color: var(--primary);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.page-header h1{
+font-size:1.6rem;
+}
+
+.analytics-grid{
+grid-template-columns:1fr;
+}
+
+.analytics-card{
+padding:20px;
+}
+
+.summary-table td{
+padding:12px;
+font-size:14px;
+}
+
+}

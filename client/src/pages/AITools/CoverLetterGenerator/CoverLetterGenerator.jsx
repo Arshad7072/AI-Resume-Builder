@@ -3,10 +3,25 @@ import "./CoverLetterGenerator.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ArrowLeft, FileText, Clipboard, Check } from "lucide-react";
+import API from "../../../api/api";
+import toast from "react-hot-toast";
+
+import {
+  ArrowLeft,
+  FileText,
+  Clipboard,
+  Check,
+  Sparkles,
+  Trash2,
+} from "lucide-react";
 
 const CoverLetterGenerator = () => {
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const [coverLetter, setCoverLetter] = useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -17,10 +32,6 @@ const CoverLetterGenerator = () => {
     achievements: "",
   });
 
-  const [coverLetter, setCoverLetter] = useState("");
-
-  const [copied, setCopied] = useState(false);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -28,80 +39,133 @@ const CoverLetterGenerator = () => {
     });
   };
 
-  const handleGenerate = () => {
-    // AI Integration Later
+  const handleGenerate = async () => {
+    const {
+      fullName,
+      company,
+      jobRole,
+      experience,
+      skills,
+    } = formData;
 
-    setCoverLetter(`Dear Hiring Manager,
+    if (
+      !fullName ||
+      !company ||
+      !jobRole ||
+      !experience ||
+      !skills
+    ) {
+      return toast.error("Please fill all required fields.");
+    }
 
-I am excited to apply for the ${formData.jobRole || "Software Developer"} position at ${formData.company || "your company"}.
+    try {
+      setLoading(true);
 
-With experience in ${formData.skills || "modern technologies"}, I have developed strong problem-solving abilities and hands-on experience building scalable applications.
+      const token = localStorage.getItem("token");
 
-I am passionate about learning new technologies and contributing to high-quality software solutions. I believe my technical skills and dedication make me a strong candidate for this role.
+      const { data } = await API.post(
+        "/ai/cover-letter",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-Thank you for considering my application.
+      setCoverLetter(data.coverLetter);
 
-Sincerely,
-
-${formData.fullName || "Your Name"}`);
+      toast.success("Cover Letter Generated");
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to generate cover letter."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCopy = async () => {
-    if (!coverLetter) return;
+    if (!coverLetter)
+      return toast.error("Generate cover letter first.");
 
     await navigator.clipboard.writeText(coverLetter);
 
     setCopied(true);
 
+    toast.success("Copied Successfully");
+
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleClear = () => {
+    setFormData({
+      fullName: "",
+      company: "",
+      jobRole: "",
+      experience: "",
+      skills: "",
+      achievements: "",
+    });
+
+    setCoverLetter("");
+
+    toast.success("Cleared");
   };
 
   return (
     <div className="cover-page">
       <div className="cover-header">
-        <button className="back-btn" onClick={() => navigate(-1)}>
-          <ArrowLeft size={18} />
+
+        <button
+          className="back-btn"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowLeft size={18}/>
           Back
         </button>
 
         <h1>
-          <FileText size={30} />
-          Cover Letter Generator
+          <FileText size={30}/>
+          AI Cover Letter Generator
         </h1>
 
-        <p>Generate a professional cover letter using AI.</p>
+        <p>
+          Generate ATS-friendly cover letters using AI.
+        </p>
+
       </div>
 
       <div className="cover-container">
+
         <div className="cover-form">
+
           <label>Full Name</label>
 
           <input
-            type="text"
             name="fullName"
-            placeholder="John Doe"
             value={formData.fullName}
             onChange={handleChange}
+            placeholder="John Doe"
           />
 
           <label>Company</label>
 
           <input
-            type="text"
             name="company"
-            placeholder="Google"
             value={formData.company}
             onChange={handleChange}
+            placeholder="Google"
           />
 
           <label>Job Role</label>
 
           <input
-            type="text"
             name="jobRole"
-            placeholder="Frontend Developer"
             value={formData.jobRole}
             onChange={handleChange}
+            placeholder="Frontend Developer"
           />
 
           <label>Experience</label>
@@ -123,9 +187,9 @@ ${formData.fullName || "Your Name"}`);
           <textarea
             rows="4"
             name="skills"
-            placeholder="React, Node.js, MongoDB"
             value={formData.skills}
             onChange={handleChange}
+            placeholder="React, Node.js..."
           />
 
           <label>Achievements</label>
@@ -133,18 +197,61 @@ ${formData.fullName || "Your Name"}`);
           <textarea
             rows="3"
             name="achievements"
-            placeholder="Internships, Certifications..."
             value={formData.achievements}
             onChange={handleChange}
+            placeholder="Internship, Certification..."
           />
 
-          <button className="generate-btn" onClick={handleGenerate}>
-            Generate Cover Letter
-          </button>
+          <div className="cover-buttons">
+
+            <button
+              className="generate-btn"
+              onClick={handleGenerate}
+              disabled={loading}
+            >
+              <Sparkles size={18}/>
+
+              {loading
+                ? "Generating..."
+                : "Generate"}
+            </button>
+
+            <button
+              className="clear-btn"
+              onClick={handleClear}
+            >
+              <Trash2 size={18}/>
+              Clear
+            </button>
+
+          </div>
+
         </div>
 
         <div className="cover-output">
-          <h2>Generated Cover Letter</h2>
+
+          <div className="output-header">
+
+            <h2>Generated Cover Letter</h2>
+
+            {coverLetter && (
+
+              <button
+                className="copy-btn"
+                onClick={handleCopy}
+              >
+                {copied
+                  ? <Check size={18}/>
+                  : <Clipboard size={18}/>
+                }
+
+                {copied ? "Copied" : "Copy"}
+
+              </button>
+
+            )}
+
+          </div>
 
           <textarea
             rows="20"
@@ -153,16 +260,8 @@ ${formData.fullName || "Your Name"}`);
             placeholder="Your AI-generated cover letter will appear here..."
           />
 
-          <div className="output-actions">
-            <button onClick={handleCopy}>
-              {copied ? <Check size={18} /> : <Clipboard size={18} />}
-
-              {copied ? "Copied" : "Copy"}
-            </button>
-
-            <button>Download</button>
-          </div>
         </div>
+
       </div>
     </div>
   );

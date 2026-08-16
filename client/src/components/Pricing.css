@@ -1,93 +1,163 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
+/* ===========================
+   Pricing Container
+=========================== */
+
 .pricing_container {
   display: flex;
-  margin: 0 20% 0 20%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  margin: 0 10%;
 }
+
+/* ===========================
+   Pricing Card
+=========================== */
+
 .pricing {
-  min-height: 18rem;
   width: 15rem;
-  margin: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 2px rgb(107, 114, 128);
-  cursor: pointer;
+  min-height: 18rem;
+
   padding: 1rem;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+
+  box-shadow: var(--shadow);
+
+  cursor: pointer;
+
+  transition: .3s;
 }
+
+.pricing:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+
+/* ===========================
+   Text
+=========================== */
+
 .pricing #free {
   font-family: "Poppins", sans-serif;
-  color: rgb(124, 58, 237);
+  color: var(--primary);
   font-size: 1rem;
-  font-weight: 550;
+  font-weight: 600;
 }
+
 .pricing h1 {
-  font-size: 1rem;
-  margin-top: 0.7rem;
-  font-family: "poppins", sans-serif;
+  margin-top: .7rem;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+
+  color: var(--text);
 }
+
 .pricing h1 #month {
-  color: rgb(107, 114, 128);
-  font-size: 0.7rem;
+  font-size: .8rem;
+  color: var(--text-light);
 }
+
 .pricing ul {
-  list-style-type: none;
-  margin-top: 0.2rem;
+  list-style: none;
+  margin-top: .8rem;
 }
+
 .pricing li {
-  color: rgb(107, 114, 128);
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 0.5rem;
+
+  margin-bottom: .6rem;
+
+  color: var(--text-light);
 }
+
+/* ===========================
+   Button
+=========================== */
+
 .pricing button {
-  background-color: white;
-  color: rgb(124, 58, 237);
-  border: 1px solid rgb(124, 58, 237);
-  padding: 0.2rem 2rem;
-  font-family: "Poppins", sans-serif;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  margin: auto 0 0;
+  margin-top: auto;
   align-self: center;
+
+  padding: .6rem 2rem;
+
+  background: var(--card);
+  color: var(--primary);
+
+  border: 1px solid var(--primary);
+  border-radius: .6rem;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: .3s;
 }
+
+.pricing button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===========================
+   Active Plan
+=========================== */
+
 .pricing.active {
-  border: 2px solid rgb(124, 58, 237);
-  box-shadow: 0 15px 35px rgb(107, 114, 128);
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow);
 }
+
 .pricing.active button {
-  background-color: rgb(124, 58, 237);
-  color: white;
+  background: var(--primary);
+  color: #fff;
 }
-@media (max-width: 768px) {
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px) {
+
   .pricing_container {
     display: grid;
-    grid-template-columns: repeat(1, 0fr);
-    margin: 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    margin: 0 1rem;
   }
+
   .pricing {
-    height: 20rem;
-    width: 11rem;
-    margin: 2rem;
-    padding: 0.5rem;
+    width: 100%;
+    max-width: 18rem;
+    min-height: 20rem;
   }
+
   .pricing button {
-    padding: 0.2rem 0.7rem;
-    font-family: "Poppins", sans-serif;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 1.1rem;
+    width: 100%;
+    padding: .8rem;
   }
+
   .header-title h1 {
-    font-size: 1rem;
-    
+    font-size: 1.4rem;
   }
+
 }

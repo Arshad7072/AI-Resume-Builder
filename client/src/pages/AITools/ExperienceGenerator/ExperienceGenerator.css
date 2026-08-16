@@ -4,7 +4,8 @@
 
 .experience-page {
   min-height: 100vh;
-  background: #f8fafc;
+  background: var(--bg);
+  color: var(--text);
   padding: 35px;
 }
 
@@ -21,26 +22,20 @@
   align-items: center;
   gap: 8px;
 
-  border: none;
-  background: #ffffff;
-
   padding: 10px 18px;
 
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--border);
   border-radius: 10px;
 
   cursor: pointer;
-
-  font-weight: 600;
-
-  color: #374151;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .back-btn:hover {
-  background: #7c3aed;
+  background: var(--primary);
   color: #fff;
 }
 
@@ -49,22 +44,17 @@
   align-items: center;
   gap: 12px;
 
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 
   font-size: 2rem;
-  font-weight: 700;
-
-  color: #111827;
 }
 
 .experience-header h1 svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .experience-header p {
-  color: #6b7280;
-  font-size: 1rem;
+  color: var(--text-light);
 }
 
 /* ===========================
@@ -73,7 +63,7 @@
 
 .experience-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2,1fr);
   gap: 30px;
 }
 
@@ -83,200 +73,218 @@
 
 .experience-form,
 .experience-output {
-  background: #fff;
-
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 18px;
-
+  box-shadow: var(--shadow);
   padding: 30px;
-
-  border: 1px solid #e5e7eb;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
 /* ===========================
    Form
 =========================== */
 
-.experience-form label {
-  display: block;
+.experience-form{
+  display:flex;
+  flex-direction:column;
+}
 
-  margin-bottom: 8px;
-  margin-top: 18px;
-
-  font-weight: 600;
-
-  color: #374151;
+.experience-form label{
+  margin-bottom:8px;
+  font-weight:600;
+  color:var(--text);
 }
 
 .experience-form input,
 .experience-form select,
-.experience-form textarea {
-  width: 100%;
+.experience-form textarea{
+  width:100%;
+  padding:14px;
 
-  padding: 14px;
+  margin-bottom:18px;
 
-  border: 1px solid #d1d5db;
+  background:var(--card);
+  color:var(--text);
 
-  border-radius: 10px;
+  border:1px solid var(--border);
+  border-radius:10px;
 
-  font-size: 0.95rem;
+  outline:none;
 
-  outline: none;
+  transition:.3s;
+}
 
-  transition: 0.3s;
+.experience-form input::placeholder,
+.experience-form textarea::placeholder{
+  color:var(--text-light);
 }
 
 .experience-form input:focus,
 .experience-form select:focus,
-.experience-form textarea:focus {
-  border-color: #7c3aed;
-
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+.experience-form textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(124,58,237,.15);
 }
 
-.experience-form textarea {
-  resize: vertical;
+.experience-form textarea{
+  resize:vertical;
 }
 
 /* ===========================
-   Generate Button
+   Buttons
 =========================== */
 
-.generate-btn {
-  width: 100%;
-
-  margin-top: 30px;
-
-  padding: 15px;
-
-  border: none;
-
-  border-radius: 12px;
-
-  background: #7c3aed;
-
-  color: #fff;
-
-  font-size: 1rem;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.3s;
+.experience-buttons{
+  display:flex;
+  gap:15px;
+  margin-top:10px;
 }
 
-.generate-btn:hover {
-  background: #6d28d9;
+.generate-btn,
+.clear-btn{
+  flex:1;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.generate-btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+}
+
+.generate-btn:hover{
+  opacity:.9;
+}
+
+.generate-btn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}
+
+.clear-btn{
+  background:var(--card);
+  color:var(--text);
+
+  border:1px solid var(--border);
+}
+
+.clear-btn:hover{
+  background:#ef4444;
+  border-color:#ef4444;
+  color:#fff;
 }
 
 /* ===========================
    Output
 =========================== */
 
-.experience-output h2 {
-  margin-bottom: 20px;
+.output-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 
-  color: #111827;
+  margin-bottom:20px;
 }
 
-.experience-output textarea {
-  width: 100%;
-
-  min-height: 350px;
-
-  resize: none;
-
-  border: 1px solid #d1d5db;
-
-  border-radius: 12px;
-
-  padding: 15px;
-
-  font-size: 0.95rem;
-
-  line-height: 1.8;
-
-  outline: none;
+.output-header h2{
+  color:var(--text);
 }
 
-/* ===========================
-   Output Buttons
-=========================== */
+.copy-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
 
-.output-actions {
-  display: flex;
+  padding:10px 16px;
 
-  gap: 15px;
+  background:var(--hover);
+  color:var(--primary);
 
-  margin-top: 20px;
+  border:none;
+  border-radius:10px;
+
+  cursor:pointer;
+
+  transition:.3s;
 }
 
-.output-actions button {
-  flex: 1;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 13px;
-
-  border: none;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  font-weight: 600;
-
-  transition: 0.3s;
+.copy-btn:hover{
+  background:var(--primary);
+  color:#fff;
 }
 
-.output-actions button:first-child {
-  background: #eef2ff;
+.experience-output textarea{
+  width:100%;
+  min-height:450px;
 
-  color: #4f46e5;
+  padding:15px;
+
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  background:var(--card);
+  color:var(--text);
+
+  resize:none;
+
+  outline:none;
+
+  line-height:1.8;
 }
 
-.output-actions button:first-child:hover {
-  background: #dbeafe;
-}
-
-.output-actions button:last-child {
-  background: #7c3aed;
-
-  color: #fff;
-}
-
-.output-actions button:last-child:hover {
-  background: #6d28d9;
+.experience-output textarea::placeholder{
+  color:var(--text-light);
 }
 
 /* ===========================
    Responsive
 =========================== */
 
-@media (max-width: 992px) {
-  .experience-container {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:992px){
+
+.experience-container{
+grid-template-columns:1fr;
 }
 
-@media (max-width: 576px) {
-  .experience-page {
-    padding: 20px;
-  }
+}
 
-  .experience-header h1 {
-    font-size: 1.6rem;
-  }
+@media(max-width:576px){
 
-  .output-actions {
-    flex-direction: column;
-  }
+.experience-page{
+padding:20px;
+}
+
+.experience-header h1{
+font-size:1.6rem;
+}
+
+.experience-buttons{
+flex-direction:column;
+}
+
+.output-header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.copy-btn{
+width:100%;
+justify-content:center;
+}
+
 }

@@ -1,10 +1,17 @@
 import "./RightPanel.css";
-import { FaRobot, FaChartPie, FaHistory } from "react-icons/fa";
+
+import { FaRobot, FaChartPie } from "react-icons/fa";
+
+import ProfileCard from "./ProfileCard";
 import ActivityTimeline from "./ActivityTimeline";
 
 const RightPanel = () => {
   return (
     <>
+      {/* Profile */}
+
+      <ProfileCard />
+
       {/* AI Assistant */}
 
       <div className="panel-card">
@@ -17,7 +24,7 @@ const RightPanel = () => {
         <button>Open AI</button>
       </div>
 
-      {/* ATS */}
+      {/* ATS Score */}
 
       <div className="panel-card">
         <FaChartPie className="panel-icon" />
@@ -29,7 +36,7 @@ const RightPanel = () => {
         <p>Your latest resume ATS score.</p>
       </div>
 
-      {/* Activity */}
+      {/* Recent Activity */}
 
       <ActivityTimeline />
     </>

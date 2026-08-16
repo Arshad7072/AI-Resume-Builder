@@ -2,6 +2,8 @@ import "./TemplatesPage.css";
 
 import { useNavigate } from "react-router-dom";
 
+import Sidebar from "../../components/Dashboard/Sidebar";
+
 import ModernTemplate from "../../components/ResumeTemplates/ModernTemplate";
 import ProfessionalTemplate from "../../components/ResumeTemplates/ProfessionalTemplate";
 import MinimalTemplate from "../../components/ResumeTemplates/MinimalTemplate";
@@ -15,19 +17,30 @@ const Templates = () => {
     personal: {
       firstName: "John",
       lastName: "Doe",
+
       email: "john@example.com",
       phone: "+91 9876543210",
+
       city: "New Delhi",
       state: "Delhi",
       country: "India",
+
+      photo: "https://i.pravatar.cc/300?img=12",
+
+      linkedin: "https://linkedin.com/in/johndoe",
+      github: "https://github.com/johndoe",
+      portfolio: "https://johndoe.dev",
+
       summary:
-        "Passionate Full Stack Developer with experience in React, Node.js and MongoDB.",
+        "Passionate Full Stack Developer with experience in React, Node.js, Express.js and MongoDB. Strong problem-solving skills with expertise in building responsive web applications.",
     },
 
     education: [
       {
-        degree: "BCA",
+        degree: "Bachelor of Computer Applications",
         institute: "XYZ University",
+        startYear: "2021",
+        endYear: "2024",
       },
     ],
 
@@ -35,32 +48,53 @@ const Templates = () => {
       {
         jobTitle: "Frontend Developer",
         company: "ABC Pvt Ltd",
-        description: "Developed responsive web applications.",
+        description:
+          "Developed responsive web applications using React.js, JavaScript, and REST APIs.",
       },
     ],
 
-    skills: ["React", "Node.js", "MongoDB", "JavaScript"],
+    skills: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git",
+    ],
 
     projects: [
       {
         projectName: "AI Resume Builder",
-        technologies: "React, Node.js",
-        description: "Online resume builder application.",
+        technologies: "React, Node.js, Express, MongoDB",
+        description:
+          "Built a full-stack AI-powered resume builder with multiple templates, PDF download, ATS checker, and dashboard analytics.",
       },
     ],
 
-    certificates: [],
+    certificates: [
+      {
+        certificateName: "Full Stack Web Development",
+        organization: "Udemy",
+      },
+    ],
 
     languages: [
       {
         language: "English",
         proficiency: "Professional",
       },
+      {
+        language: "Hindi",
+        proficiency: "Native",
+      },
     ],
   };
 
   return (
     <div className="templates-page">
+      <Sidebar />
       <div className="templates-header">
         <h1>Resume Templates</h1>
 

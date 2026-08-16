@@ -52,7 +52,12 @@ const Login = () => {
 
       login(response.data.user, response.data.token);
 
-      navigate("/dashboard");
+      if (response.data.user.role === "admin") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/dashboard");
+      }
+
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
     }

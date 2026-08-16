@@ -1,11 +1,16 @@
+/* ===========================
+   Resume Card
+=========================== */
+
 .resume-card {
-  background: white;
+  background: var(--card);
+  color: var(--text);
 
   padding: 1.5rem;
-
   border-radius: 1rem;
 
-  box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 
   transition: 0.3s;
 }
@@ -16,72 +21,79 @@
 
 .resume-header {
   display: flex;
-
   justify-content: space-between;
+  align-items: center;
 
   margin-bottom: 1rem;
+}
+
+.resume-header h3 {
+  color: var(--text);
 }
 
 .resume-header span {
   font-size: 0.8rem;
-
-  color: #9ca3af;
+  color: var(--text-light);
 }
 
 .resume-card p {
-  color: #6b7280;
-
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
+/* ===========================
+   Skills
+=========================== */
+
 .resume-skills {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 0.5rem;
 
   margin-bottom: 1.5rem;
 }
 
 .resume-skills span {
-  background: #ede9fe;
-
-  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--primary);
 
   padding: 0.4rem 0.8rem;
-
   border-radius: 999px;
 
   font-size: 0.85rem;
+  font-weight: 500;
 }
+
+/* ===========================
+   Actions
+=========================== */
 
 .resume-actions {
   display: flex;
-
   justify-content: space-between;
 }
 
 .resume-actions button {
   width: 45px;
-
   height: 45px;
 
-  border: none;
-
+  border: 1px solid var(--border);
   border-radius: 0.7rem;
 
-  background: #f3f4f6;
+  background: var(--card);
+  color: var(--text);
 
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .resume-actions button:hover {
-  background: #7c3aed;
-
-  color: white;
+  background: var(--primary);
+  color: #fff;
 }
 
 .delete:hover {
   background: #ef4444 !important;
+  border-color: #ef4444;
+  color: #fff;
 }

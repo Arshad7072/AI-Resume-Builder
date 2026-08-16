@@ -84,6 +84,10 @@ const resumeSchema = new mongoose.Schema(
         proficiency: String,
       },
     ],
+    atsScore: {
+      type: Number,
+      default: 0,
+    },
   },
 
   {

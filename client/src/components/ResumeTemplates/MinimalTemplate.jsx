@@ -6,20 +6,40 @@ const MinimalTemplate = ({ resume }) => {
       {/* Header */}
 
       <header className="minimal-header">
+        {resume.personal.photo && (
+          <div className="minimal-photo">
+            <img src={resume.personal.photo} alt="Profile" />
+          </div>
+        )}
+
         <h1>
           {resume.personal.firstName} {resume.personal.lastName}
         </h1>
 
-        <p>
-          {resume.personal.email} • {resume.personal.phone}
-        </p>
+        {resume.personal.email && <p>{resume.personal.email}</p>}
 
-        <p>
-          {resume.personal.city}, {resume.personal.state},{" "}
-          {resume.personal.country}
-        </p>
+        {resume.personal.phone && <p>{resume.personal.phone}</p>}
 
-        <p>{resume.personal.linkedin}</p>
+        {(resume.personal.city ||
+          resume.personal.state ||
+          resume.personal.country) && (
+          <p>
+            {resume.personal.city}
+            {resume.personal.city &&
+            (resume.personal.state || resume.personal.country)
+              ? ", "
+              : ""}
+            {resume.personal.state}
+            {resume.personal.state && resume.personal.country ? ", " : ""}
+            {resume.personal.country}
+          </p>
+        )}
+
+        {resume.personal.linkedin && <p>{resume.personal.linkedin}</p>}
+
+        {resume.personal.github && <p>{resume.personal.github}</p>}
+
+        {resume.personal.portfolio && <p>{resume.personal.portfolio}</p>}
       </header>
 
       {/* Summary */}

@@ -1,63 +1,88 @@
 .panel-card {
-  background: white;
+  background: var(--card);
+  color: var(--text);
 
+  border: 1px solid var(--border);
   border-radius: 1rem;
 
   padding: 1.5rem;
 
-  box-shadow: 0 0.25rem 0.8rem rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
+
+  transition: 0.3s;
+}
+
+.panel-card:hover {
+  transform: translateY(-4px);
 }
 
 .panel-icon {
   font-size: 2rem;
-
-  color: #7c3aed;
-
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
 .panel-card h3 {
   margin-bottom: 0.8rem;
+  color: var(--text);
 }
 
 .panel-card p {
-  color: #6b7280;
-
-  line-height: 1.5;
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 .panel-card button {
-  margin-top: 1rem;
-
   width: 100%;
-
-  background: #7c3aed;
-
-  color: white;
-
-  border: none;
+  margin-top: 1rem;
 
   padding: 0.8rem;
 
+  border: none;
   border-radius: 0.7rem;
 
+  background: var(--primary);
+  color: #fff;
+
+  font-weight: 600;
   cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.panel-card button:hover {
+  opacity: 0.9;
 }
 
 .score {
-  font-size: 2.5rem;
+  margin: 0.8rem 0;
 
+  font-size: 2.5rem;
   font-weight: bold;
 
   color: #10b981;
-
-  margin: 0.8rem 0;
 }
 
 .panel-card ul {
-  padding-left: 1rem;
+  padding-left: 1.2rem;
 }
 
 .panel-card li {
   margin-bottom: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 576px) {
+  .panel-card {
+    padding: 1.2rem;
+  }
+
+  .score {
+    font-size: 2rem;
+  }
 }

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import API from "../../api/api";
 import { useResume } from "../../context/ResumeContext";
 
-const Review = ({ prevStep, mode, resumeId, template = "modern" }) => {
+const Review = ({ prevStep, mode, resumeId }) => {
   const { resumeData } = useResume();
 
   const navigate = useNavigate();
@@ -25,10 +25,7 @@ const Review = ({ prevStep, mode, resumeId, template = "modern" }) => {
       };
 
       // Final payload
-      const resumePayload = {
-        ...resumeData,
-        template,
-      };
+      const resumePayload = resumeData;
 
       let response;
 
@@ -59,31 +56,59 @@ const Review = ({ prevStep, mode, resumeId, template = "modern" }) => {
       <div className="review-section">
         <h3>Personal Information</h3>
 
-        <div className="review-grid">
-          <p>
-            <strong>Name:</strong> {resumeData.personal.firstName}{" "}
-            {resumeData.personal.lastName}
-          </p>
+        <div className="review-profile">
+          {resumeData.personal.photo ? (
+            <img
+              src={resumeData.personal.photo}
+              alt="Profile"
+              className="review-photo"
+            />
+          ) : (
+            <div className="review-photo-placeholder">No Photo</div>
+          )}
 
-          <p>
-            <strong>Email:</strong> {resumeData.personal.email}
-          </p>
+          <div className="review-grid">
+            <p>
+              <strong>Name:</strong> {resumeData.personal.firstName}{" "}
+              {resumeData.personal.lastName}
+            </p>
 
-          <p>
-            <strong>Phone:</strong> {resumeData.personal.phone}
-          </p>
+            <p>
+              <strong>Email:</strong> {resumeData.personal.email}
+            </p>
 
-          <p>
-            <strong>Country:</strong> {resumeData.personal.country}
-          </p>
+            <p>
+              <strong>Phone:</strong> {resumeData.personal.phone}
+            </p>
 
-          <p>
-            <strong>State:</strong> {resumeData.personal.state}
-          </p>
+            <p>
+              <strong>Country:</strong> {resumeData.personal.country}
+            </p>
 
-          <p>
-            <strong>City:</strong> {resumeData.personal.city}
-          </p>
+            <p>
+              <strong>State:</strong> {resumeData.personal.state}
+            </p>
+
+            <p>
+              <strong>City:</strong> {resumeData.personal.city}
+            </p>
+
+            <p>
+              <strong>LinkedIn:</strong> {resumeData.personal.linkedin || "-"}
+            </p>
+
+            <p>
+              <strong>GitHub:</strong> {resumeData.personal.github || "-"}
+            </p>
+
+            <p>
+              <strong>Portfolio:</strong> {resumeData.personal.portfolio || "-"}
+            </p>
+
+            <p>
+              <strong>Template:</strong> {resumeData.template}
+            </p>
+          </div>
         </div>
       </div>
 

@@ -1,0 +1,200 @@
+/* ===========================
+   Admin Sidebar
+=========================== */
+
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 260px;
+  height: 100vh;
+
+  background: #ffffff;
+
+  border-right: 1px solid #ececec;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.3s;
+
+  z-index: 999;
+}
+
+.admin-sidebar.close {
+  width: 85px;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.admin-logo {
+  height: 75px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #5b21b6
+  );
+
+  color: white;
+}
+
+.admin-logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+   
+}
+
+.admin-sidebar.close .admin-logo h2 {
+  font-size: 20px;
+}
+
+/* ===========================
+   Navigation
+=========================== */
+
+.admin-sidebar nav {
+  flex: 1;
+
+  padding: 20px 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.admin-sidebar nav a {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  color: #555;
+
+  font-weight: 600;
+
+  transition: .25s;
+}
+
+.admin-sidebar nav a svg {
+  font-size: 20px;
+
+  min-width: 24px;
+}
+
+/* Hover */
+
+.admin-sidebar nav a:hover {
+  background: rgba(124,58,237,.08);
+
+  color: #7c3aed;
+
+  transform: translateX(5px);
+}
+
+/* Active */
+
+.admin-sidebar nav a.active {
+  background: linear-gradient(
+      135deg,
+      #7c3aed,
+      #6d28d9
+  );
+
+  color: white;
+
+  box-shadow: 0 8px 25px rgba(124,58,237,.3);
+}
+
+/* Hide text when collapsed */
+
+.admin-sidebar.close nav a {
+  justify-content: center;
+}
+
+.admin-sidebar.close nav a span {
+  display: none;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.admin-sidebar-footer {
+  padding: 15px;
+
+  border-top: 1px solid #eee;
+}
+
+.admin-sidebar-footer button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #ef4444;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.admin-sidebar-footer button:hover {
+  background: #dc2626;
+}
+
+.admin-sidebar.close .admin-sidebar-footer span {
+  display: none;
+}
+
+/* Scroll */
+
+.admin-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 20px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.admin-sidebar{
+transform:translateX(-100%);
+}
+
+.admin-sidebar.open{
+transform:translateX(0);
+}
+
+}

@@ -2,384 +2,307 @@
    Settings Page
 ========================================== */
 
-.settings-page{
-    min-height:100vh;
-    background:#f8fafc;
-    padding:40px 20px;
-    max-width:1200px;
-    margin:auto;
+.settings-page {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+
+  background: var(--bg);
+  color: var(--text);
+  margin-left: 17rem;
 }
 
 /* ==========================================
    Header
 ========================================== */
 
-.settings-header{
-    margin-bottom:30px;
+.settings-header {
+  margin-bottom: 30px;
 }
 
-.settings-header h1{
-    font-size:2.3rem;
-    font-weight:700;
-    color:#111827;
-    margin-bottom:10px;
+.settings-header h1 {
+  margin-bottom: 10px;
+
+  font-size: 2.3rem;
+  font-weight: 700;
+
+  color: var(--text);
 }
 
-.settings-header p{
-    color:#6b7280;
-    font-size:1rem;
+.settings-header p {
+  color: var(--text-light);
 }
 
 /* ==========================================
    Card
 ========================================== */
 
-.settings-card{
-    background:#fff;
-    max-width:1000px;
-    margin:auto;
+.settings-card {
+  max-width: 1000px;
+  margin: auto;
 
-    border-radius:20px;
+  padding: 35px;
 
-    padding:35px;
+  background: var(--card);
 
-    border:1px solid #e5e7eb;
+  border: 1px solid var(--border);
+  border-radius: 20px;
 
-    box-shadow:0 10px 35px rgba(0,0,0,.06);
+  box-shadow: var(--shadow);
 }
 
 /* ==========================================
    Setting Item
 ========================================== */
 
-.setting-item{
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    display:flex;
+  gap: 20px;
 
-    justify-content:space-between;
+  flex-wrap: wrap;
 
-    align-items:center;
+  padding: 25px 0;
 
-    gap:20px;
-
-    flex-wrap:wrap;
-
-    padding:25px 0;
-
-    border-bottom:1px solid #ececec;
-
+  border-bottom: 1px solid var(--border);
 }
 
-.setting-item:last-child{
-    border-bottom:none;
+.setting-item:last-child {
+  border-bottom: none;
 }
 
-.setting-info{
+.setting-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    flex:1;
-
+  flex: 1;
 }
 
-.setting-info svg{
-
-    color:#7c3aed;
-
-    flex-shrink:0;
-
+.setting-info svg {
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
-.setting-info h3{
+.setting-info h3 {
+  margin-bottom: 6px;
 
-    font-size:1.05rem;
+  font-size: 1.05rem;
 
-    color:#111827;
-
-    margin-bottom:6px;
-
+  color: var(--text);
 }
 
-.setting-info p{
+.setting-info p {
+  color: var(--text-light);
 
-    color:#6b7280;
+  font-size: 0.93rem;
 
-    font-size:.93rem;
-
-    line-height:1.5;
-
+  line-height: 1.5;
 }
 
 /* ==========================================
    Buttons
 ========================================== */
 
-.action-btn{
+.action-btn {
+  min-width: 120px;
 
-    border:none;
+  padding: 11px 22px;
 
-    background:#7c3aed;
+  border: none;
+  border-radius: 10px;
 
-    color:#fff;
+  background: var(--primary);
+  color: #fff;
 
-    min-width:120px;
+  font-weight: 600;
 
-    padding:11px 22px;
+  cursor: pointer;
 
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:.3s;
-
+  transition: .3s;
 }
 
-.action-btn:hover{
-
-    background:#6d28d9;
-
+.action-btn:hover {
+  opacity: .9;
+  transform: translateY(-2px);
 }
 
-.delete-btn{
+.delete-btn {
+  min-width: 120px;
 
-    border:none;
+  padding: 11px 22px;
 
-    background:#ef4444;
+  border: none;
+  border-radius: 10px;
 
-    color:white;
+  background: #ef4444;
+  color: #fff;
 
-    min-width:120px;
+  font-weight: 600;
 
-    padding:11px 22px;
+  cursor: pointer;
 
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:.3s;
-
+  transition: .3s;
 }
 
-.delete-btn:hover{
-
-    background:#dc2626;
-
+.delete-btn:hover {
+  background: #dc2626;
 }
 
 /* ==========================================
    Danger Box
 ========================================== */
 
-.danger{
+.danger {
+  margin-top: 15px;
 
-    background:#fef2f2;
+  padding: 22px;
 
-    border-radius:14px;
+  background: rgba(239, 68, 68, 0.08);
 
-    padding:22px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
 
-    margin-top:15px;
-
+  border-radius: 14px;
 }
 
 .danger h3,
-.danger svg{
-
-    color:#ef4444;
-
+.danger svg {
+  color: #ef4444;
 }
 
 /* ==========================================
    Toggle Switch
 ========================================== */
 
-.switch{
+.switch {
+  position: relative;
 
-    position:relative;
+  display: inline-block;
 
-    display:inline-block;
-
-    width:60px;
-
-    height:34px;
-
+  width: 60px;
+  height: 34px;
 }
 
-.switch input{
-
-    display:none;
-
+.switch input {
+  display: none;
 }
 
-.slider{
+.slider {
+  position: absolute;
+  inset: 0;
 
-    position:absolute;
+  background: var(--border);
 
-    inset:0;
+  border-radius: 34px;
 
-    background:#d1d5db;
+  cursor: pointer;
 
-    border-radius:34px;
-
-    transition:.3s;
-
-    cursor:pointer;
-
+  transition: .3s;
 }
 
-.slider::before{
+.slider::before {
+  content: "";
 
-    content:"";
+  position: absolute;
 
-    position:absolute;
+  top: 4px;
+  left: 4px;
 
-    width:26px;
+  width: 26px;
+  height: 26px;
 
-    height:26px;
+  background: #fff;
 
-    left:4px;
+  border-radius: 50%;
 
-    top:4px;
-
-    background:#fff;
-
-    border-radius:50%;
-
-    transition:.3s;
-
+  transition: .3s;
 }
 
-.switch input:checked + .slider{
-
-    background:#7c3aed;
-
+.switch input:checked + .slider {
+  background: var(--primary);
 }
 
-.switch input:checked + .slider::before{
-
-    transform:translateX(26px);
-
+.switch input:checked + .slider::before {
+  transform: translateX(26px);
 }
 
 /* ==========================================
    Save Button
 ========================================== */
 
-.save-btn{
+.save-btn {
+  width: 240px;
 
-    margin:40px auto 0;
+  margin: 40px auto 0;
 
-    width:240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
-    display:flex;
+  padding: 15px;
 
-    justify-content:center;
+  border: none;
+  border-radius: 12px;
 
-    align-items:center;
+  background: var(--primary);
+  color: #fff;
 
-    gap:10px;
+  font-size: 1rem;
+  font-weight: 600;
 
-    padding:15px;
+  cursor: pointer;
 
-    border:none;
-
-    border-radius:12px;
-
-    background:#7c3aed;
-
-    color:#fff;
-
-    font-size:1rem;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
+  transition: .3s;
 }
 
-.save-btn:hover{
-
-    background:#6d28d9;
-
-    transform:translateY(-2px);
-
+.save-btn:hover {
+  opacity: .9;
+  transform: translateY(-2px);
 }
 
 /* ==========================================
    Responsive
 ========================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
+  .settings-card {
+    padding: 25px;
+  }
 
-.settings-card{
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-padding:25px;
-
+  .action-btn,
+  .delete-btn,
+  .save-btn {
+    width: 100%;
+  }
 }
 
-.setting-item{
+@media (max-width: 576px) {
+  .settings-page {
+    padding: 20px;
+  }
 
-flex-direction:column;
+  .settings-header h1 {
+    font-size: 1.8rem;
+  }
 
-align-items:flex-start;
+  .settings-card {
+    padding: 20px;
+  }
 
-}
+  .setting-info {
+    align-items: flex-start;
+  }
 
-.action-btn,
-.delete-btn{
-
-width:100%;
-
-}
-
-.save-btn{
-
-width:100%;
-
-}
-
-}
-
-@media(max-width:576px){
-
-.settings-page{
-
-padding:20px;
-
-}
-
-.settings-header h1{
-
-font-size:1.8rem;
-
-}
-
-.settings-card{
-
-padding:20px;
-
-}
-
-.setting-info{
-
-align-items:flex-start;
-
-}
-
-.setting-info svg{
-
-margin-top:3px;
-
-}
-
+  .setting-info svg {
+    margin-top: 3px;
+  }
 }

@@ -51,6 +51,19 @@ import Settings from "./pages/Settings/Settings";
 // help & supports
 import HelpSupport from "./pages/HelpSupport/HelpSupport";
 
+// ===========================
+// Admin Panel
+// ===========================
+
+import AdminRoute from "./admin/components/AdminRoute";
+import AdminLayout from "./admin/layouts/AdminLayout";
+import AdminDashboard from "./admin/pages/Dashboard";
+import AdminUsers from "./admin/pages/Users";
+import AdminResumes from "./admin/pages/Resumes";
+import AdminSupport from "./admin/pages/Support";
+import AdminAnalytics from "./admin/pages/Analytics";
+import AdminSettings from "./admin/pages/Settings";
+
 function App() {
   return (
     <>
@@ -171,7 +184,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        \{/* AI Cover Letter Generator */}
+        {/* AI Cover Letter Generator */}
         <Route
           path="/ai-tools/cover-letter"
           element={
@@ -234,6 +247,27 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* ===========================
+      Admin Panel
+=========================== */}
+
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="resumes" element={<AdminResumes />} />
+          <Route path="support" element={<AdminSupport />} />
+          <Route path="analytics" element={<AdminAnalytics />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
         {/* 404 */}
         <Route
           path="*"

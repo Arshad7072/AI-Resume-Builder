@@ -1,6 +1,8 @@
 import "./Profile.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import Sidebar from "../../components/Dashboard/Sidebar";
 
 import {
   User,
@@ -12,48 +14,156 @@ import {
   Save,
 } from "lucide-react";
 
+import API from "../../api/api";
+
 const Profile = () => {
   const [profile, setProfile] = useState({
-    name: "Md Arshad Ansari",
-    email: "arshad@gmail.com",
-    phone: "+91 9876543210",
-    location: "Greater Noida, India",
-    university: "IILM University",
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+    university: "",
+    profilePhoto: "",
   });
 
-  const handleChange = (e) => {
-    setProfile({
-      ...profile,
-      [e.target.name]: e.target.value,
-    });
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.get("/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setProfile({
+        ...data.user,
+        profilePhoto: data.user.profilePhoto
+          ? `http://localhost:5000${data.user.profilePhoto}`
+          : "",
+      });
+    } catch (error) {
+      toast.error("Failed to load profile");
+    }
   };
 
-  const handleSave = () => {
-    alert("Profile Updated Successfully");
+  const handleChange = (e) => {
+    setProfile((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSave = async () => {
+    try {
+      setLoading(true);
+
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.put(
+        "/profile",
+        {
+          name: profile.name,
+          phone: profile.phone,
+          location: profile.location,
+          university: profile.university,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message || "Profile update failed"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePhotoUpload = async (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    try {
+      const formData = new FormData();
+
+      formData.append("photo", file);
+
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.post("/profile/photo", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setProfile((prev) => ({
+        ...prev,
+        profilePhoto: `http://localhost:5000${data.photo}`,
+      }));
+
+      toast.success("Profile photo updated");
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message || "Photo upload failed"
+      );
+    }
   };
 
   return (
     <div className="profile-page">
-      <div className="profile-header">
+      <Sidebar/>
+      <div className="profile-page-header">
         <h1>Profile</h1>
 
         <p>Manage your personal information.</p>
       </div>
 
-      <div className="profile-card">
-        <div className="profile-image">
-          <div className="avatar">
-            <User size={70} />
+      <div className="profile-page-card">
+        {/* Left */}
+
+        <div className="profile-page-image">
+          <div className="profile-page-avatar">
+            {profile.profilePhoto ? (
+              <img
+                src={profile.profilePhoto}
+                alt={profile.name}
+                className="profile-avatar-image"
+              />
+            ) : (
+              <User size={70} />
+            )}
           </div>
 
-          <button>
+          <label className="change-photo-btn">
             <Camera size={18} />
             Change Photo
-          </button>
+
+            <input
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handlePhotoUpload}
+            />
+          </label>
         </div>
 
-        <div className="profile-form">
-          <div className="input-group">
+        {/* Right */}
+
+        <div className="profile-page-form">
+          <div className="profile-input-group">
             <label>
               <User size={18} />
               Full Name
@@ -67,7 +177,7 @@ const Profile = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="profile-input-group">
             <label>
               <Mail size={18} />
               Email
@@ -75,13 +185,12 @@ const Profile = () => {
 
             <input
               type="email"
-              name="email"
               value={profile.email}
-              onChange={handleChange}
+              disabled
             />
           </div>
 
-          <div className="input-group">
+          <div className="profile-input-group">
             <label>
               <Phone size={18} />
               Phone
@@ -95,7 +204,7 @@ const Profile = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="profile-input-group">
             <label>
               <MapPin size={18} />
               Location
@@ -109,7 +218,7 @@ const Profile = () => {
             />
           </div>
 
-          <div className="input-group">
+          <div className="profile-input-group">
             <label>
               <GraduationCap size={18} />
               University
@@ -123,9 +232,15 @@ const Profile = () => {
             />
           </div>
 
-          <button className="save-btn" onClick={handleSave}>
+          <button
+            type="button"
+            className="profile-save-btn"
+            onClick={handleSave}
+            disabled={loading}
+          >
             <Save size={18} />
-            Save Changes
+
+            {loading ? "Saving..." : "Save Changes"}
           </button>
         </div>
       </div>

@@ -6,19 +6,33 @@ const ProfessionalTemplate = ({ resume }) => {
       {/* Left Sidebar */}
 
       <aside className="left-column">
+        {/* Profile Photo */}
+
+        {resume.personal.photo && (
+          <div className="sidebar-photo">
+            <img src={resume.personal.photo} alt="Profile" />
+          </div>
+        )}
+
         <h2>Contact</h2>
 
-        <p>{resume.personal.email}</p>
+        {resume.personal.email && <p>{resume.personal.email}</p>}
 
-        <p>{resume.personal.phone}</p>
+        {resume.personal.phone && <p>{resume.personal.phone}</p>}
 
-        <p>
-          {resume.personal.city}, {resume.personal.state}
-        </p>
+        {(resume.personal.city || resume.personal.state) && (
+          <p>
+            {resume.personal.city}
+            {resume.personal.city && resume.personal.state ? ", " : ""}
+            {resume.personal.state}
+          </p>
+        )}
 
-        <p>{resume.personal.linkedin}</p>
+        {resume.personal.linkedin && <p>{resume.personal.linkedin}</p>}
 
-        <p>{resume.personal.github}</p>
+        {resume.personal.github && <p>{resume.personal.github}</p>}
+
+        {resume.personal.portfolio && <p>{resume.personal.portfolio}</p>}
 
         <h2>Skills</h2>
 

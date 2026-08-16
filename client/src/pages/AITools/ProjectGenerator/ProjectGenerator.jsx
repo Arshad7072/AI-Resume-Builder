@@ -3,10 +3,25 @@ import "./ProjectGenerator.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { ArrowLeft, FolderKanban, Clipboard, Check } from "lucide-react";
+import API from "../../../api/api";
+import toast from "react-hot-toast";
+
+import {
+  ArrowLeft,
+  FolderKanban,
+  Clipboard,
+  Check,
+  Sparkles,
+  Trash2,
+} from "lucide-react";
 
 const ProjectGenerator = () => {
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const [description, setDescription] = useState("");
 
   const [formData, setFormData] = useState({
     projectName: "",
@@ -18,10 +33,6 @@ const ProjectGenerator = () => {
     teamSize: "",
   });
 
-  const [description, setDescription] = useState("");
-
-  const [copied, setCopied] = useState(false);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,51 +40,100 @@ const ProjectGenerator = () => {
     });
   };
 
-  const handleGenerate = () => {
-    // AI Integration Later
+  const handleGenerate = async () => {
+    if (
+      !formData.projectName ||
+      !formData.projectType ||
+      !formData.technologies
+    ) {
+      return toast.error("Please fill required fields.");
+    }
 
-    setDescription(`Developed ${
-      formData.projectName || "a full-stack application"
-    } using ${formData.technologies || "modern technologies"}.
+    try {
+      setLoading(true);
 
-• Designed a responsive user interface.
-• Implemented secure authentication.
-• Developed RESTful APIs.
-• Added ${formData.features || "core application features"}.
-• Collaborated with team members using Git & GitHub.
-• Improved application performance and user experience.`);
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.post(
+        "/ai/project",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setDescription(data.project);
+
+      toast.success("Project generated successfully.");
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to generate project."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleCopy = async () => {
-    if (!description) return;
+    if (!description) {
+      return toast.error("Generate project first.");
+    }
 
     await navigator.clipboard.writeText(description);
 
     setCopied(true);
 
+    toast.success("Copied successfully.");
+
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleClear = () => {
+    setFormData({
+      projectName: "",
+      projectType: "",
+      technologies: "",
+      features: "",
+      role: "",
+      duration: "",
+      teamSize: "",
+    });
+
+    setDescription("");
+
+    toast.success("Cleared.");
   };
 
   return (
     <div className="project-page">
       <div className="project-header">
-        <button className="back-btn" onClick={() => navigate(-1)}>
+        <button
+          className="back-btn"
+          onClick={() => navigate(-1)}
+        >
           <ArrowLeft size={18} />
           Back
         </button>
 
         <h1>
           <FolderKanban size={30} />
-          Project Generator
+          AI Project Generator
         </h1>
 
-        <p>Generate professional project descriptions using AI.</p>
+        <p>
+          Generate ATS-friendly professional project descriptions.
+        </p>
       </div>
 
       <div className="project-container">
+
         {/* Left */}
 
         <div className="project-form">
+
           <label>Project Name</label>
 
           <input
@@ -112,7 +172,7 @@ const ProjectGenerator = () => {
           <label>Project Features</label>
 
           <textarea
-            rows="4"
+            rows="3"
             name="features"
             placeholder="Authentication, Dashboard, PDF Download..."
             value={formData.features}
@@ -129,7 +189,7 @@ const ProjectGenerator = () => {
             onChange={handleChange}
           />
 
-          <label>Duration (Optional)</label>
+          <label>Duration</label>
 
           <input
             type="text"
@@ -139,7 +199,7 @@ const ProjectGenerator = () => {
             onChange={handleChange}
           />
 
-          <label>Team Size (Optional)</label>
+          <label>Team Size</label>
 
           <input
             type="number"
@@ -149,15 +209,59 @@ const ProjectGenerator = () => {
             onChange={handleChange}
           />
 
-          <button className="generate-btn" onClick={handleGenerate}>
-            Generate Description
-          </button>
+          <div className="project-buttons">
+
+            <button
+              className="generate-btn"
+              onClick={handleGenerate}
+              disabled={loading}
+            >
+              <Sparkles size={18} />
+
+              {loading
+                ? "Generating..."
+                : "Generate Description"}
+            </button>
+
+            <button
+              className="clear-btn"
+              onClick={handleClear}
+            >
+              <Trash2 size={18} />
+              Clear
+            </button>
+
+          </div>
         </div>
 
         {/* Right */}
 
         <div className="project-output">
-          <h2>Generated Description</h2>
+
+          <div className="output-header">
+
+            <h2>Generated Description</h2>
+
+            {description && (
+              <button
+                className="copy-btn"
+                onClick={handleCopy}
+              >
+                {copied ? (
+                  <>
+                    <Check size={18} />
+                    Copied
+                  </>
+                ) : (
+                  <>
+                    <Clipboard size={18} />
+                    Copy
+                  </>
+                )}
+              </button>
+            )}
+
+          </div>
 
           <textarea
             rows="18"
@@ -165,16 +269,6 @@ const ProjectGenerator = () => {
             value={description}
             placeholder="Your AI-generated project description will appear here..."
           />
-
-          <div className="output-actions">
-            <button onClick={handleCopy}>
-              {copied ? <Check size={18} /> : <Clipboard size={18} />}
-
-              {copied ? "Copied" : "Copy"}
-            </button>
-
-            <button>Use in Resume</button>
-          </div>
         </div>
       </div>
     </div>

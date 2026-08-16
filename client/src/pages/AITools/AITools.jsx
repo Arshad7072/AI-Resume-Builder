@@ -1,5 +1,7 @@
 import "./AITools.css";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../components/Dashboard/Sidebar";
+
 
 import {
   Sparkles,
@@ -61,6 +63,7 @@ const AITools = () => {
 
   return (
     <div className="ai-tools-page">
+      <Sidebar/>
       <div className="ai-header">
         <div>
           <h1>AI Tools</h1>

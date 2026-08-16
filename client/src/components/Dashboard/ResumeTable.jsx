@@ -1,105 +1,239 @@
 import "./ResumeTable.css";
 
-import { FaEdit, FaTrash, FaDownload, FaEye } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
+import API from "../../api/api";
+
+import {
+  FaEdit,
+  FaTrash,
+  FaDownload,
+  FaEye,
+} from "react-icons/fa";
 
 const ResumeTable = () => {
-  const resumes = [
-    {
-      id: 1,
-      title: "Software Developer",
-      template: "Modern",
-      ats: "92%",
-      updated: "Today",
-      status: "Completed",
-    },
-    {
-      id: 2,
-      title: "Frontend Developer",
-      template: "Professional",
-      ats: "88%",
-      updated: "Yesterday",
-      status: "Draft",
-    },
-    {
-      id: 3,
-      title: "Python Developer",
-      template: "Minimal",
-      ats: "95%",
-      updated: "2 Days Ago",
-      status: "Completed",
-    },
-  ];
+
+  const navigate = useNavigate();
+
+  const [resumes, setResumes] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchRecentResumes();
+  }, []);
+
+  // ==========================
+  // Fetch Recent Resumes
+  // ==========================
+
+  const fetchRecentResumes = async () => {
+
+    try {
+
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.get("/resume", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Latest 5 resumes
+      setResumes(data.resumes.slice(0, 5));
+
+    } catch (error) {
+
+      toast.error(
+        error.response?.data?.message ||
+        "Failed to load resumes"
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  };
+
+  // ==========================
+  // Delete Resume
+  // ==========================
+
+  const handleDelete = async (id) => {
+
+    if (!window.confirm("Delete this resume?")) return;
+
+    try {
+
+      const token = localStorage.getItem("token");
+
+      await API.delete(`/resume/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      toast.success("Resume deleted");
+
+      setResumes((prev) =>
+        prev.filter((resume) => resume._id !== id)
+      );
+
+    } catch (error) {
+
+      toast.error(
+        error.response?.data?.message ||
+        "Failed to delete resume"
+      );
+
+    }
+
+  };
+
+  if (loading) {
+    return <h3>Loading resumes...</h3>;
+  }
 
   return (
     <div className="resume-section">
+
       <div className="section-header">
+
         <h2>Recent Resumes</h2>
 
-        <button>View All</button>
+        <button
+          onClick={() => navigate("/my-resumes")}
+        >
+          View All
+        </button>
+
       </div>
 
       <div className="table-wrapper">
+
         <table>
+
           <thead>
+
             <tr>
+
               <th>Resume</th>
+
               <th>Template</th>
-              <th>ATS</th>
+
               <th>Updated</th>
-              <th>Status</th>
+
               <th>Actions</th>
+
             </tr>
+
           </thead>
 
           <tbody>
-            {resumes.map((resume) => (
-              <tr key={resume.id}>
-                <td>{resume.title}</td>
 
-                <td>{resume.template}</td>
+            {resumes.length === 0 ? (
 
-                <td>{resume.ats}</td>
+              <tr>
 
-                <td>{resume.updated}</td>
-
-                <td>
-                  <span
-                    className={
-                      resume.status === "Completed"
-                        ? "status completed"
-                        : "status draft"
-                    }
-                  >
-                    {resume.status}
-                  </span>
+                <td colSpan="4">
+                  No resumes found.
                 </td>
 
-                <td>
-                  <div className="action-buttons">
-                    <button>
-                      <FaEye />
-                    </button>
-
-                    <button>
-                      <FaEdit />
-                    </button>
-
-                    <button>
-                      <FaDownload />
-                    </button>
-
-                    <button className="delete-btn">
-                      <FaTrash />
-                    </button>
-                  </div>
-                </td>
               </tr>
-            ))}
+
+            ) : (
+
+              resumes.map((resume) => (
+
+                <tr key={resume._id}>
+
+                  <td>
+
+                    {resume.personal?.firstName}{" "}
+                    {resume.personal?.lastName}
+
+                  </td>
+
+                  <td>
+
+                    {resume.template || "Modern"}
+
+                  </td>
+
+                  <td>
+
+                    {new Date(
+                      resume.updatedAt
+                    ).toLocaleDateString()}
+
+                  </td>
+
+                  <td>
+
+                    <div className="action-buttons">
+
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/resume-preview/${resume._id}`
+                          )
+                        }
+                      >
+                        <FaEye />
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/edit-resume/${resume._id}`
+                          )
+                        }
+                      >
+                        <FaEdit />
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          navigate(
+                            `/resume-preview/${resume._id}`
+                          )
+                        }
+                      >
+                        <FaDownload />
+                      </button>
+
+                      <button
+                        className="delete-btn"
+                        onClick={() =>
+                          handleDelete(resume._id)
+                        }
+                      >
+                        <FaTrash />
+                      </button>
+
+                    </div>
+
+                  </td>
+
+                </tr>
+
+              ))
+
+            )}
+
           </tbody>
+
         </table>
+
       </div>
+
     </div>
   );
+
 };
 
 export default ResumeTable;

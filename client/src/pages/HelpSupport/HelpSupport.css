@@ -4,10 +4,13 @@
 
 .help-page {
   min-height: 100vh;
-  background: #f8fafc;
-  padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
+  padding: 40px 20px;
+  margin-left: 17rem;
+
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* ==========================================
@@ -25,18 +28,19 @@
   align-items: center;
   gap: 12px;
 
-  font-size: 2.3rem;
-  color: #111827;
   margin-bottom: 10px;
+
+  font-size: 2.3rem;
+
+  color: var(--text);
 }
 
 .help-header h1 svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .help-header p {
-  color: #6b7280;
-  font-size: 1rem;
+  color: var(--text-light);
 }
 
 /* ==========================================
@@ -45,54 +49,69 @@
 
 .contact-grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
   gap: 25px;
-
   margin-bottom: 45px;
 }
 
 .contact-card {
-  background: #fff;
+  background: var(--card);
 
+  border: 1px solid var(--border);
   border-radius: 18px;
 
   padding: 30px;
 
   text-align: center;
 
-  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow);
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .contact-card:hover {
   transform: translateY(-8px);
-
-  border-color: #7c3aed;
-
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary);
 }
 
 .contact-card svg {
-  color: #7c3aed;
-
+  color: var(--primary);
   margin-bottom: 15px;
 }
 
 .contact-card h3 {
-  color: #111827;
-
   margin-bottom: 10px;
+  color: var(--text);
 }
 
 .contact-card p {
-  color: #6b7280;
-
+  color: var(--text-light);
   line-height: 1.6;
+}
+.contact-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-card button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.contact-card button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* ==========================================
@@ -100,29 +119,27 @@
 ========================================== */
 
 .faq-section {
-  background: #fff;
+  background: var(--card);
 
+  border: 1px solid var(--border);
   border-radius: 20px;
 
   padding: 35px;
 
-  border: 1px solid #e5e7eb;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
 }
 
 .faq-section h2 {
-  color: #111827;
-
   margin-bottom: 25px;
+  color: var(--text);
 }
 
 /* ==========================================
-   FAQ Card
+   FAQ Item
 ========================================== */
 
 .faq-card {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border);
 }
 
 .faq-card:last-child {
@@ -133,40 +150,231 @@
   width: 100%;
 
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   padding: 20px 0;
 
-  background: none;
+  background: transparent;
 
   border: none;
 
   cursor: pointer;
 
-  font-size: 1rem;
+  text-align: left;
 
+  font-size: 1rem;
   font-weight: 600;
 
-  color: #111827;
+  color: var(--text);
 
-  text-align: left;
+  transition: 0.3s;
+}
+
+.faq-btn:hover {
+  color: var(--primary);
 }
 
 .faq-btn svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .faq-answer {
-  padding: 0 0 20px;
+  padding-bottom: 20px;
 
-  color: #6b7280;
+  color: var(--text-light);
 
   line-height: 1.7;
 
   animation: fade 0.25s ease;
+}
+/* ==========================================
+   Support Form
+========================================== */
+
+.support-form {
+  margin-top: 40px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 35px;
+
+  box-shadow: var(--shadow);
+}
+
+.support-form h2 {
+  color: var(--text);
+
+  margin-bottom: 10px;
+
+  font-size: 1.8rem;
+}
+
+.support-form p {
+  color: var(--text-light);
+
+  margin-bottom: 25px;
+}
+
+.support-form form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.support-form input,
+.support-form textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  background: var(--card);
+
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 0.95rem;
+
+  transition: 0.3s;
+}
+
+.support-form input::placeholder,
+.support-form textarea::placeholder {
+  color: var(--text-light);
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.support-form textarea {
+  resize: vertical;
+
+  min-height: 140px;
+}
+
+.support-form button {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 24px;
+
+  background: var(--primary);
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.support-form button:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.95;
+}
+
+/* ==========================================
+   Contact Card Small Text
+========================================== */
+
+.contact-card small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--text-light);
+
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   Dark Mode
+========================================== */
+
+body.dark .help-page {
+  background: var(--bg);
+}
+
+body.dark .help-header h1,
+body.dark .faq-section h2,
+body.dark .support-form h2 {
+  color: var(--text);
+}
+
+body.dark .help-header p,
+body.dark .faq-answer,
+body.dark .contact-card p,
+body.dark .contact-card small,
+body.dark .support-form p {
+  color: var(--text-light);
+}
+
+body.dark .contact-card,
+body.dark .faq-section,
+body.dark .support-form {
+  background: var(--card);
+
+  border-color: var(--border);
+
+  box-shadow: var(--shadow);
+}
+
+body.dark .faq-btn {
+  color: var(--text);
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+  .support-form {
+    padding: 25px;
+  }
+
+  .support-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .support-form {
+    padding: 20px;
+  }
+
+  .support-form h2 {
+    font-size: 1.5rem;
+  }
 }
 
 @keyframes fade {
@@ -201,11 +409,9 @@
   }
 
   .help-header h1 {
-    font-size: 1.6rem;
-
     flex-direction: column;
-
     gap: 8px;
+    font-size: 1.6rem;
   }
 
   .contact-grid {

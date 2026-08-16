@@ -1,18 +1,19 @@
-/* ==========================================
+/* ===========================
    ATS Checker
-========================================== */
+=========================== */
 
 .ats-page {
   min-height: 100vh;
-  background: #f8fafc;
-  padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
+  padding: 40px 20px;
+
+  background: var(--bg);
+  color: var(--text);
+  margin-left: 17rem;
 }
 
-/* ==========================================
-   Header
-========================================== */
+/* Header */
 
 .ats-header {
   text-align: center;
@@ -25,56 +26,52 @@
   align-items: center;
   gap: 12px;
 
-  font-size: 2.3rem;
-  color: #111827;
   margin-bottom: 10px;
+
+  font-size: 2.3rem;
 }
 
-.ats-header svg {
-  color: #7c3aed;
+.ats-header h1 svg {
+  color: var(--primary);
 }
 
 .ats-header p {
-  color: #6b7280;
-  font-size: 1rem;
+  color: var(--text-light);
 }
 
-/* ==========================================
-   Upload Card
-========================================== */
+/* Cards */
 
-.upload-card {
-  background: #fff;
+.upload-card,
+.result-card {
+  background: var(--card);
 
+  border: 1px solid var(--border);
   border-radius: 20px;
 
   padding: 35px;
 
-  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow);
+}
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
+.upload-card {
   text-align: center;
-
   margin-bottom: 35px;
 }
 
+/* Upload */
+
 .upload-box {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
 
   gap: 12px;
 
-  border: 2px dashed #7c3aed;
-
-  border-radius: 18px;
-
   padding: 50px 20px;
+
+  border: 2px dashed var(--primary);
+  border-radius: 18px;
 
   cursor: pointer;
 
@@ -82,55 +79,48 @@
 }
 
 .upload-box:hover {
-  background: #f5f3ff;
+  background: var(--hover);
 }
 
 .upload-box svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .upload-box h3 {
-  color: #111827;
+  color: var(--text);
 }
 
 .upload-box p {
-  color: #6b7280;
+  color: var(--text-light);
 }
 
 .selected-file {
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   gap: 10px;
 
   margin-top: 20px;
 
-  color: #374151;
+  color: var(--text);
 
   font-weight: 600;
 }
 
 .selected-file svg {
-  color: #7c3aed;
+  color: var(--primary);
 }
 
 .upload-card button {
   margin-top: 25px;
 
-  padding: 14px 28px;
+  padding: 14px 30px;
+
+  background: var(--primary);
+  color: #fff;
 
   border: none;
-
   border-radius: 12px;
-
-  background: #7c3aed;
-
-  color: white;
-
-  font-size: 1rem;
 
   font-weight: 600;
 
@@ -140,80 +130,58 @@
 }
 
 .upload-card button:hover {
-  background: #6d28d9;
+  opacity: 0.9;
 }
 
-/* ==========================================
-   Result Card
-========================================== */
-
-.result-card {
-  background: #fff;
-
-  border-radius: 20px;
-
-  padding: 35px;
-
-  border: 1px solid #e5e7eb;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-/* ==========================================
-   Score Circle
-========================================== */
+/* Score */
 
 .score {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 
   margin-bottom: 35px;
 }
 
+.score h2 {
+  color: var(--text);
+}
+
 .score span {
   width: 170px;
-
   height: 170px;
 
+  margin-top: 20px;
+
   display: flex;
-
-  align-items: center;
-
   justify-content: center;
+  align-items: center;
 
   border-radius: 50%;
 
-  background: conic-gradient(#7c3aed 0deg, #7c3aed 313deg, #e5e7eb 313deg);
+  background: conic-gradient(
+    var(--primary) 0deg,
+    var(--primary) 313deg,
+    var(--border) 313deg
+  );
 
-  color: white;
+  color: #fff;
 
   font-size: 2.7rem;
-
   font-weight: 700;
-
-  margin-top: 20px;
 }
 
-/* ==========================================
-   Checks
-========================================== */
+/* Checks */
 
 .checks {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
   gap: 18px;
 }
 
 .check {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
 
   padding: 15px;
@@ -224,9 +192,8 @@
 }
 
 .success {
-  background: #ecfdf5;
-
-  color: #15803d;
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
 }
 
 .success svg {
@@ -234,52 +201,45 @@
 }
 
 .danger {
-  background: #fef2f2;
-
-  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
 }
 
 .danger svg {
   color: #ef4444;
 }
 
-/* ==========================================
-   Suggestions
-========================================== */
+/* Suggestions */
 
 .suggestions {
   margin-top: 35px;
 
-  background: #f9fafb;
+  background: var(--bg);
 
+  border: 1px solid var(--border);
   border-radius: 15px;
 
   padding: 25px;
-
-  border: 1px solid #e5e7eb;
 }
 
 .suggestions h3 {
   margin-bottom: 15px;
-
-  color: #111827;
+  color: var(--text);
 }
 
 .suggestions ul {
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .suggestions li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
-  color: #4b5563;
+  color: var(--text-light);
 
   line-height: 1.7;
 }
 
-/* ==========================================
-   Responsive
-========================================== */
+/* Responsive */
 
 @media (max-width: 768px) {
   .score span {
@@ -299,8 +259,8 @@
   }
 
   .ats-header h1 {
-    font-size: 1.7rem;
     flex-direction: column;
+    font-size: 1.7rem;
   }
 
   .upload-card,

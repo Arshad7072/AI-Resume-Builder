@@ -1,19 +1,93 @@
 import "./PersonalInfo.css";
 import { useResume } from "../../context/ResumeContext";
+import { useState, useEffect } from "react";
+import API from "../../api/api";
+import toast from "react-hot-toast";
+import ImageCropper from "../ImageCropper/ImageCropper";
 
 const PersonalInfo = ({ nextStep }) => {
   const { resumeData, setResumeData } = useResume();
 
+  const [photoPreview, setPhotoPreview] = useState(
+    resumeData.personal.photo || "",
+  );
+
+  const [uploading, setUploading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showCropper, setShowCropper] = useState(false);
+
+  useEffect(() => {
+    if (resumeData.personal.photo) {
+      setPhotoPreview(resumeData.personal.photo);
+    }
+  }, [resumeData.personal.photo]);
+
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image.");
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error("Image size must be less than 2MB.");
+      return;
+    }
+
+    setSelectedImage(URL.createObjectURL(file));
+    setShowCropper(true);
+  };
+  const handleCropComplete = async (croppedFile) => {
+    try {
+      setUploading(true);
+
+      const formData = new FormData();
+      formData.append("photo", croppedFile);
+
+      const token = localStorage.getItem("token");
+
+      const { data } = await API.post("/upload/photo", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const photoUrl = `http://localhost:5000${data.photo}`;
+
+      setPhotoPreview(photoUrl);
+
+      setResumeData((prev) => ({
+        ...prev,
+        personal: {
+          ...prev.personal,
+          photo: photoUrl,
+        },
+      }));
+
+      toast.success("Profile photo uploaded.");
+
+      setShowCropper(false);
+      setSelectedImage(null);
+    } catch (err) {
+      toast.error("Upload failed.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setResumeData({
-      ...resumeData,
+    setResumeData((prev) => ({
+      ...prev,
       personal: {
-        ...resumeData.personal,
+        ...prev.personal,
         [name]: value,
       },
-    });
+    }));
   };
 
   return (
@@ -211,7 +285,20 @@ const PersonalInfo = ({ nextStep }) => {
         <div className="form-group full-width">
           <label>Profile Photo</label>
 
-          <input type="file" accept="image/*" />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handlePhotoUpload}
+            disabled={uploading}
+          />
+
+          {uploading && <p className="upload-status">Uploading photo...</p>}
+
+          {photoPreview && (
+            <div className="photo-preview">
+              <img src={photoPreview} alt="Profile Preview" />
+            </div>
+          )}
         </div>
       </form>
 
@@ -224,6 +311,16 @@ const PersonalInfo = ({ nextStep }) => {
           Next →
         </button>
       </div>
+      {showCropper && (
+        <ImageCropper
+          image={selectedImage}
+          onCropComplete={handleCropComplete}
+          onCancel={() => {
+            setShowCropper(false);
+            setSelectedImage(null);
+          }}
+        />
+      )}
     </div>
   );
 };

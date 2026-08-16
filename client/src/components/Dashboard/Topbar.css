@@ -7,14 +7,19 @@
   justify-content: space-between;
   align-items: center;
 
-  background: white;
+  background: var(--card);
+  color: var(--text);
 
   padding: 1rem 2rem;
 
-  border-bottom: 0.0625rem solid #e5e7eb;
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: var(--shadow);
 }
 
-/* Left */
+/* ===========================
+   Left
+=========================== */
 
 .topbar-left {
   display: flex;
@@ -26,42 +31,53 @@
   display: none;
 
   border: none;
-
   background: transparent;
 
-  font-size: 1.3rem;
+  color: var(--text);
 
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-
   gap: 0.8rem;
 
-  background: #f3f4f6;
+  width: 24rem;
 
   padding: 0.8rem 1rem;
 
-  border-radius: 0.8rem;
+  background: var(--hover);
 
-  width: 24rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+}
+
+.search-box svg {
+  color: var(--text-light);
 }
 
 .search-box input {
   width: 100%;
 
   border: none;
+  outline: none;
 
   background: transparent;
 
-  outline: none;
+  color: var(--text);
 
   font-size: 1rem;
 }
 
-/* Right */
+.search-box input::placeholder {
+  color: var(--text-light);
+}
+
+/* ===========================
+   Right
+=========================== */
 
 .topbar-right {
   display: flex;
@@ -74,13 +90,12 @@
   align-items: center;
   gap: 0.5rem;
 
-  background: #fef3c7;
-
-  color: #92400e;
-
   padding: 0.6rem 1rem;
 
   border-radius: 2rem;
+
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
 
   font-weight: 600;
 }
@@ -89,25 +104,24 @@
   width: 2.8rem;
   height: 2.8rem;
 
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  border: none;
   border-radius: 50%;
 
-  background: #f3f4f6;
+  background: var(--hover);
+  color: var(--text);
 
   cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   transition: 0.3s;
 }
 
 .icon-btn:hover {
-  background: #7c3aed;
-
-  color: white;
+  background: var(--primary);
+  color: #fff;
 }
 
 .create-btn {
@@ -115,15 +129,13 @@
   align-items: center;
   gap: 0.5rem;
 
-  border: none;
-
-  background: #7c3aed;
-
-  color: white;
-
   padding: 0.85rem 1.2rem;
 
+  border: none;
   border-radius: 0.8rem;
+
+  background: var(--primary);
+  color: #fff;
 
   cursor: pointer;
 
@@ -131,7 +143,7 @@
 }
 
 .create-btn:hover {
-  background: #6d28d9;
+  opacity: 0.9;
 }
 
 /* ===========================

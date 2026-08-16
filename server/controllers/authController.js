@@ -4,11 +4,9 @@ const sendOTP = require("../utils/sendEmail");
 
 // Signup Controller
 const signup = async (req, res) => {
-  
   try {
     console.log("Body:", req.body);
     const { name, email, password } = req.body;
-    
 
     // Validation
     if (!name || !email || !password) {
@@ -50,11 +48,10 @@ const signup = async (req, res) => {
     await sendOTP(email, otp);
 
     res.status(201).json({
-    success: true,
-    message: "OTP sent to your email successfully",
-    user,
-});
-
+      success: true,
+      message: "OTP sent to your email successfully",
+      user,
+    });
   } catch (error) {
     console.log(error);
 
@@ -64,7 +61,6 @@ const signup = async (req, res) => {
     });
   }
 };
-
 
 // Verify Email Controller
 const verifyEmail = async (req, res) => {
@@ -124,7 +120,6 @@ const verifyEmail = async (req, res) => {
       success: true,
       message: "Email verified successfully",
     });
-
   } catch (error) {
     console.log(error);
 
@@ -179,11 +174,9 @@ const login = async (req, res) => {
     }
 
     // Generate JWT
-    const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
 
     res.status(200).json({
       success: true,
@@ -193,9 +186,9 @@ const login = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
     });
-
   } catch (error) {
     console.error(error);
 
@@ -210,7 +203,6 @@ const login = async (req, res) => {
 
 const resendOTP = async (req, res) => {
   try {
-
     const { email } = req.body;
 
     if (!email) {
@@ -250,16 +242,13 @@ const resendOTP = async (req, res) => {
       success: true,
       message: "New OTP sent successfully",
     });
-
   } catch (error) {
-
     console.log(error);
 
     res.status(500).json({
       success: false,
       message: "Server Error",
     });
-
   }
 };
 
@@ -267,7 +256,6 @@ const resendOTP = async (req, res) => {
 
 const forgotPassword = async (req, res) => {
   try {
-
     const { email } = req.body;
 
     if (!email) {
@@ -287,14 +275,10 @@ const forgotPassword = async (req, res) => {
     }
 
     // Generate OTP
-    const otp = Math.floor(
-      100000 + Math.random() * 900000
-    ).toString();
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
     user.otp = otp;
-    user.otpExpiry = new Date(
-      Date.now() + 10 * 60 * 1000
-    );
+    user.otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
     await user.save();
 
@@ -304,23 +288,19 @@ const forgotPassword = async (req, res) => {
       success: true,
       message: "Password reset OTP sent successfully",
     });
-
   } catch (error) {
-
     console.log(error);
 
     res.status(500).json({
       success: false,
       message: "Server Error",
     });
-
   }
 };
 // reset password controller
 
 const resetPassword = async (req, res) => {
   try {
-
     const { email, otp, password } = req.body;
 
     if (!email || !otp || !password) {
@@ -368,16 +348,13 @@ const resetPassword = async (req, res) => {
       success: true,
       message: "Password reset successful",
     });
-
   } catch (error) {
-
     console.log(error);
 
     res.status(500).json({
       success: false,
       message: "Server Error",
     });
-
   }
 };
 
@@ -385,7 +362,7 @@ module.exports = {
   signup,
   verifyEmail,
   login,
-  resendOTP,  
+  resendOTP,
   forgotPassword,
   resetPassword,
 };

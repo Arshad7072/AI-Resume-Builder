@@ -30,7 +30,10 @@ const WelcomeBanner = () => {
           Import Resume
         </button>
 
-        <button className="secondary-btn">
+        <button
+          className="secondary-btn"
+          onClick={() => navigate("/templates")}
+        >
           <FaFileAlt />
           Templates
         </button>

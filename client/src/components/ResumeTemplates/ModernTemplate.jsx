@@ -5,21 +5,40 @@ const ModernTemplate = ({ resume }) => {
     <div className="modern-template">
       {/* Header */}
 
+
       <header className="template-header">
-        <h1>
-          {resume.personal.firstName} {resume.personal.lastName}
-        </h1>
+        <div className="header-left">
+          <div>
+            <h1>
+              {resume.personal.firstName} {resume.personal.lastName}
+            </h1>
 
-        <div className="contact">
-          <span>{resume.personal.email}</span>
+            <div className="contact">
+              <span>{resume.personal.email}</span>
 
-          <span>{resume.personal.phone}</span>
+              <span>{resume.personal.phone}</span>
 
-          <span>
-            {resume.personal.city}, {resume.personal.state}
-          </span>
+              <span>
+                {resume.personal.city}, {resume.personal.state}
+              </span>
 
-          <span>{resume.personal.linkedin}</span>
+              {resume.personal.linkedin && (
+                <span>{resume.personal.linkedin}</span>
+              )}
+
+              {resume.personal.github && <span>{resume.personal.github}</span>}
+
+              {resume.personal.portfolio && (
+                <span>{resume.personal.portfolio}</span>
+              )}
+            </div>
+          </div>
+
+          {resume.personal.photo && (
+            <div className="profile-photo">
+              <img src={resume.personal.photo} alt="Profile" />
+            </div>
+          )}
         </div>
       </header>
 

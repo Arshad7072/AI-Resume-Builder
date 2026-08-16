@@ -1,69 +1,5 @@
 /* ==========================================
-   Modern Resume Template
-========================================== */
-
-.modern-template {
-  width: 100%;
-  color: #1f2937;
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
-}
-
-/* ==========================================
-   Header
-========================================== */
-
-.template-header {
-  text-align: center;
-  border-bottom: 3px solid #7c3aed;
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.template-header h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #111827;
-  margin-bottom: 0.8rem;
-}
-
-.contact {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-.contact span::after {
-  content: "|";
-  margin-left: 0.8rem;
-}
-
-.contact span:last-child::after {
-  content: "";
-}
-
-/* ==========================================
-   Sections
-========================================== */
-
-.modern-template section {
-  margin-bottom: 2rem;
-}
-
-.modern-template section h2 {
-  color: #7c3aed;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 2px solid #ede9fe;
-}
-
-/* ==========================================
-   Resume Item
+   Common Template Styles
 ========================================== */
 
 .item {
@@ -92,84 +28,73 @@
 }
 
 /* ==========================================
-   Skills / Languages
+   Modern Template
 ========================================== */
+
+.modern-template {
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  color: #1f2937;
+  line-height: 1.6;
+  padding: 0.5rem;
+}
+
+.template-header {
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.header-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #7c3aed;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.template-header h1 {
+  font-size: 2.3rem;
+  margin-bottom: 8px;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  color: #666;
+}
+
+.modern-template section {
+  margin-bottom: 25px;
+}
+
+.modern-template section h2 {
+  color: #7c3aed;
+  border-bottom: 2px solid #ede9fe;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+}
 
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 10px;
 }
 
 .skills-list span {
   background: #ede9fe;
   color: #6d28d9;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* ==========================================
-   Tablet
-========================================== */
-
-@media (max-width: 768px) {
-  .template-header h1 {
-    font-size: 2rem;
-  }
-
-  .contact {
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .contact span::after {
-    display: none;
-  }
-}
-
-/* ==========================================
-   Mobile
-========================================== */
-
-@media (max-width: 576px) {
-  .template-header {
-    text-align: left;
-  }
-
-  .template-header h1 {
-    font-size: 1.7rem;
-  }
-
-  .modern-template section h2 {
-    font-size: 1.05rem;
-  }
-}
-
-/* ==========================================
-   Print
-========================================== */
-
-@media print {
-  .modern-template {
-    color: #000;
-  }
-
-  .template-header {
-    border-bottom: 2px solid #000;
-  }
-
-  .modern-template section h2 {
-    color: #000;
-    border-bottom: 1px solid #000;
-  }
-
-  .skills-list span {
-    background: #fff;
-    border: 1px solid #000;
-    color: #000;
-  }
+  padding: 6px 14px;
+  border-radius: 50px;
 }
 
 /* ==========================================
@@ -178,73 +103,69 @@
 
 .professional-template {
   display: grid;
-  grid-template-columns: 40% 60%;
-  min-height: 100%;
+  grid-template-columns: 35% 65%;
 }
 
 .left-column {
   background: #1f2937;
-  color: #fff;
-  padding: 1rem;
+  color: white;
+  padding: 25px;
+}
+
+.sidebar-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
 }
 
 .left-column h2 {
-  font-size: 1.1rem;
-  margin: 1.5rem 0 0.8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 0.4rem;
-  text-align: center;
-}
-
-.left-column p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 5px;
 }
 
 .sidebar-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .sidebar-tags span {
   background: #374151;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 13px;
 }
 
 .right-column {
-  padding: 2rem;
+  padding: 30px;
 }
 
 .right-column header {
   border-bottom: 2px solid #7c3aed;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 .right-column h1 {
   font-size: 2.2rem;
-  color: #111827;
-  margin-bottom: 0.7rem;
+  margin-bottom: 10px;
 }
 
 .right-column h2 {
   color: #7c3aed;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-  .professional-template {
-    grid-template-columns: 1fr;
-  }
-
-  .left-column {
-    padding: 1.5rem;
-  }
+  margin-bottom: 12px;
+  padding-bottom: 5px;
 }
 
 /* ==========================================
@@ -252,101 +173,66 @@
 ========================================== */
 
 .minimal-template {
-  font-family: "Helvetica", sans-serif;
-
+  font-family: Helvetica, Arial, sans-serif;
   color: #222;
-
-  line-height: 1.7;
+  padding: 0.5rem;
 }
 
 .minimal-header {
   text-align: center;
+  margin-bottom: 30px;
+}
 
-  margin-bottom: 2rem;
+.minimal-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.minimal-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #7c3aed;
 }
 
 .minimal-header h1 {
   font-size: 2.3rem;
-
-  font-weight: 700;
-
-  margin-bottom: 0.4rem;
+  margin-bottom: 10px;
 }
 
 .minimal-header p {
   color: #666;
-
-  margin: 0.25rem 0;
+  margin: 5px 0;
 }
 
 .minimal-template section {
-  margin-bottom: 2rem;
+  margin-bottom: 25px;
 }
 
 .minimal-template h2 {
-  font-size: 1.15rem;
-
-  font-weight: 600;
-
   text-transform: uppercase;
-
-  letter-spacing: 1px;
-
-  color: #111;
-
-  border-bottom: 1px solid #d1d5db;
-
-  padding-bottom: 0.35rem;
-
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
 }
 
 .minimal-item {
-  margin-bottom: 1.2rem;
-}
-
-.minimal-item h3 {
-  font-size: 1rem;
-
-  color: #111;
-
-  margin-bottom: 0.3rem;
-}
-
-.minimal-item p {
-  color: #555;
-}
-
-.minimal-item small {
-  color: #888;
+  margin-bottom: 15px;
 }
 
 .minimal-skills {
   display: flex;
-
   flex-wrap: wrap;
-
-  gap: 0.6rem;
+  gap: 10px;
 }
 
 .minimal-skills span {
   border: 1px solid #999;
-
+  padding: 5px 12px;
   border-radius: 5px;
-
-  padding: 0.35rem 0.8rem;
-
-  font-size: 0.85rem;
-}
-
-@media (max-width: 768px) {
-  .minimal-header h1 {
-    font-size: 1.8rem;
-  }
-
-  .minimal-template {
-    font-size: 0.95rem;
-  }
 }
 
 /* ==========================================
@@ -356,32 +242,22 @@
 .template-gallery {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-
   gap: 12px;
-
-  margin: 20px 0 30px;
+  margin: 25px 0;
 }
 
 .template-card {
   padding: 10px 22px;
-
   border: 2px solid #e5e7eb;
   border-radius: 999px;
-
-  background: #fff;
-
   cursor: pointer;
-
-  transition: 0.25s;
-
-  user-select: none;
+  transition: 0.3s;
+  background: white;
 }
 
 .template-card:hover {
   border-color: #7c3aed;
-  transform: translateY(-2px);
 }
 
 .active-template {
@@ -391,15 +267,49 @@
 }
 
 .template-card h3 {
-  font-size: 15px;
-  font-weight: 600;
   margin: 0;
 }
 
-.template-card p {
+.template-card p,
+.template-preview {
   display: none;
 }
 
-.template-preview {
-  display: none;
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+  .header-left {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .professional-template {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo img,
+  .sidebar-photo img,
+  .minimal-photo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* ==========================================
+   Print
+========================================== */
+
+@media print {
+  .profile-photo img,
+  .sidebar-photo img,
+  .minimal-photo img {
+    box-shadow: none;
+  }
 }

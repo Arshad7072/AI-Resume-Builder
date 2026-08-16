@@ -1,102 +1,244 @@
-.summary-page{
+/* ===========================
+   Summary Generator
+=========================== */
 
-padding:30px;
+.summary-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: var(--bg);
 
-display:flex;
+  display: flex;
+  justify-content: center;
 
-justify-content:center;
-
+  color: var(--text);
 }
 
-.summary-card{
+.summary-card {
+  width: 100%;
+  max-width: 900px;
 
-width:100%;
+  background: var(--card);
 
-max-width:900px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
 
-background:white;
+  padding: 30px;
 
-border-radius:18px;
-
-padding:30px;
-
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-
+  box-shadow: var(--shadow);
 }
 
-.summary-header{
+/* Header */
 
-text-align:center;
-
-margin-bottom:30px;
-
+.summary-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.summary-header svg{
-
-color:#7c3aed;
-
-margin-bottom:10px;
-
+.summary-header svg {
+  color: var(--primary);
+  margin-bottom: 10px;
 }
 
-.summary-form{
+.summary-header h1 {
+  color: var(--text);
+  margin-bottom: 10px;
+}
 
-display:flex;
+.summary-header p {
+  color: var(--text-light);
+}
 
-flex-direction:column;
+/* Form */
 
-gap:18px;
+.summary-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
+.summary-form label {
+  font-weight: 600;
+  color: var(--text);
 }
 
 .summary-form input,
-.summary-form textarea{
+.summary-form textarea {
+  width: 100%;
 
-padding:14px;
+  padding: 14px;
 
-border:1px solid #ddd;
+  background: var(--bg);
+  color: var(--text);
 
-border-radius:10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 
-font-size:15px;
+  outline: none;
 
+  transition: 0.3s;
 }
 
-.summary-form button{
-
-padding:14px;
-
-background:#7c3aed;
-
-color:white;
-
-border:none;
-
-border-radius:10px;
-
-cursor:pointer;
-
-font-weight:600;
-
+.summary-form input:focus,
+.summary-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
 }
 
-.generated-summary{
-
-margin-top:30px;
-
+.summary-form textarea {
+  resize: vertical;
 }
 
-.generated-summary textarea{
+/* Button */
 
-width:100%;
+.summary-form button {
+  padding: 15px;
 
-padding:15px;
+  background: var(--primary);
+  color: #fff;
 
-border-radius:10px;
+  border: none;
+  border-radius: 12px;
 
-border:1px solid #ddd;
+  font-size: 1rem;
+  font-weight: 600;
 
-resize:none;
+  cursor: pointer;
 
+  transition: 0.3s;
+}
+
+.summary-form button:hover {
+  opacity: 0.9;
+}
+
+/* Output */
+
+.generated-summary {
+  margin-top: 30px;
+}
+
+.generated-summary h2 {
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.generated-summary textarea {
+  width: 100%;
+  min-height: 220px;
+
+  padding: 15px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  resize: vertical;
+
+  outline: none;
+
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .summary-page {
+    padding: 20px;
+  }
+
+  .summary-card {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .summary-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .summary-form button {
+    width: 100%;
+  }
+}
+
+.summary-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.generate-btn,
+.clear-btn,
+.copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  padding: .9rem 1.5rem;
+
+  border: none;
+  border-radius: .8rem;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.generate-btn {
+  background: #7c3aed;
+  color: white;
+  flex: 1;
+}
+
+.generate-btn:hover {
+  background: #6d28d9;
+}
+
+.generate-btn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #dc2626;
+}
+
+.summary-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.copy-btn {
+  background: #10b981;
+  color: white;
+}
+
+.copy-btn:hover {
+  background: #059669;
+}
+
+@media (max-width:768px){
+  .summary-buttons{
+    flex-direction:column;
+  }
+
+  .summary-result-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1rem;
+  }
+
+  .copy-btn{
+    width:100%;
+  }
 }

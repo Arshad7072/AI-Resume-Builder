@@ -4,6 +4,7 @@ const ResumeContext = createContext();
 
 // Initial Resume Data
 export const initialResumeData = {
+  template: "modern",
   personal: {
     firstName: "",
     lastName: "",
@@ -79,9 +80,11 @@ export const initialResumeData = {
 export const ResumeProvider = ({ children }) => {
   const [resumeData, setResumeData] = useState(initialResumeData);
 
-  const resetResumeData = () => {
-    // Deep copy to avoid sharing object references
-    setResumeData(structuredClone(initialResumeData));
+  const resetResumeData = (template = "modern") => {
+    setResumeData({
+      ...structuredClone(initialResumeData),
+      template,
+    });
   };
 
   return (

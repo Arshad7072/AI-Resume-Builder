@@ -5,20 +5,22 @@ import { Toaster } from "react-hot-toast";
 
 import "./index.css";
 import App from "./App.jsx";
+
 import { AuthProvider } from "./context/AuthContext";
 import { ResumeProvider } from "./context/ResumeContext";
+import { ThemeProvider } from "./context/ThemeContext";
+import "./styles/theme.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <ResumeProvider>
-          <App />
-          <Toaster
-            position="top-right"
-            reverseOrder={false}
-          />
-        </ResumeProvider>
+        <ThemeProvider>
+          <ResumeProvider>
+            <App />
+            <Toaster position="top-right" reverseOrder={false} />
+          </ResumeProvider>
+        </ThemeProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

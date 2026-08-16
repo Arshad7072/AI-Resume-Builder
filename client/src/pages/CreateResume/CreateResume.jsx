@@ -28,10 +28,9 @@ const CreateResume = () => {
   const selectedTemplate = searchParams.get("template") || "modern";
 
   useEffect(() => {
-    resetResumeData();
-
+    resetResumeData(selectedTemplate);
     setCurrentStep(1);
-  }, []);
+  }, [selectedTemplate]);
 
   const nextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, 8));
@@ -74,13 +73,7 @@ const CreateResume = () => {
           <Languages nextStep={nextStep} prevStep={prevStep} />
         )}
 
-        {currentStep === 8 && (
-          <Review
-            prevStep={prevStep}
-            mode="create"
-            template={selectedTemplate}
-          />
-        )}
+        {currentStep === 8 && <Review prevStep={prevStep} mode="create" />}
       </div>
     </div>
   );

@@ -1,21 +1,32 @@
+/* ===========================
+   My Resume
+=========================== */
+
 .my-resume-page {
   display: flex;
   min-height: 100vh;
-  background: #f8fafc;
-  
+
+  background: var(--bg);
+  color: var(--text);
 }
 
 .my-resume-content {
   flex: 1;
+
   margin-left: 17rem;
+
   padding: 2rem;
+
+  background: var(--bg);
 }
+
+/* ===========================
+   Header
+=========================== */
 
 .page-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 2rem;
@@ -23,36 +34,46 @@
 
 .page-header h1 {
   font-size: 2rem;
-
   font-weight: 700;
+
+  color: var(--text);
 }
 
 .page-header button {
-  background: #7c3aed;
-
-  color: white;
-
-  border: none;
-
   padding: 0.9rem 1.3rem;
 
+  border: none;
   border-radius: 0.8rem;
 
+  background: var(--primary);
+  color: #fff;
+
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition: 0.3s;
 }
+
+.page-header button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ===========================
+   Responsive
+=========================== */
 
 @media (max-width: 992px) {
   .my-resume-content {
     margin-left: 0;
-
     padding: 1rem;
   }
 
   .page-header {
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: 1rem;
   }
 

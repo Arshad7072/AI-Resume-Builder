@@ -2,112 +2,179 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin: 0 1rem;
+  padding: 1rem 0;
+
+  background: transparent;
 }
+
 .nav {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.nav .nav-title {
+
+.nav-title {
   cursor: pointer;
   font-size: 1.5rem;
+  color: var(--text);
 }
+
 .nav-logo {
-  background-color: white;
+  background: transparent;
   cursor: pointer;
 }
+
+.nav-logo img {
+  background: var(--card);
+  border-radius: 12px;
+}
+
 .nav-content ul {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 2rem;
-  font-family: "inter", sans-serif;
-  font-weight: 500;
-  
-}
-.nav-content ul,
-.nav-content select {
-  font-size: 1.2rem;
-  border: none;
+
   list-style: none;
-  cursor: pointer;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
+
 .nav-content ul a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
+  transition: .3s;
 }
-.nav-content li:hover{
-  transition: 0.3s;
-transform: translatey(-5px);
+
+.nav-content ul a:hover {
+  color: var(--primary);
 }
+
+.nav-content li {
+  cursor: pointer;
+  transition: .3s;
+}
+
+.nav-content li:hover {
+  transform: translateY(-5px);
+}
+
+.nav-content select {
+  background: transparent;
+  color: var(--text);
+
+  border: none;
+  outline: none;
+
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ===========================
+   Right Side
+=========================== */
 
 .nav-auth {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.nav-auth .dark-btn {
-  color: black;
-  background-color: white;
-  border: none;
+
+.dark-btn {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: .3s;
 }
+
 .dark-btn:hover {
-  background-color: white;
-  transform: translatey(-5px);
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-5px);
 }
-.nav-auth .login-btn {
-  color: rgb(124, 58, 237);
-  background-color: white;
-  border: 1px solid rgb(124, 58, 237);
-  border-radius: 0.7rem;
-  padding: 0.5rem 1rem;
+
+.login-btn {
+  padding: .55rem 1.2rem;
+
+  background: transparent;
+  color: var(--primary);
+
+  border: 1px solid var(--primary);
+  border-radius: .7rem;
+
   font-size: 1rem;
-  font-weight: 550;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
+
 .login-btn:hover {
-  color: white;
-  background-color: rgb(124, 58, 237);
-  box-shadow: 0 5px 10px rgb(107, 114, 128);
-  transform: translatey(-5px);
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
 }
-.nav-auth .get-started-btn {
-  color: white;
-  background-color: rgb(124, 58, 237);
-  border-radius: 0.7rem;
+
+.get-started-btn {
+  padding: .55rem 1.2rem;
+
+  background: var(--primary);
+  color: #fff;
+
   border: none;
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  font-weight: 500;
+  border-radius: .7rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: .3s;
 }
+
 .get-started-btn:hover {
-  color: rgb(124, 58, 237);
-  background-color: white;
-  box-shadow: 0 5px 10px rgb(107, 114, 128);
-  transform: translatey(-5px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  opacity: .95;
 }
-@media (max-width: 768px) {
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px) {
   .nav-content ul {
     display: none;
   }
+
   .navbar {
-    margin-top: 0.5rem;
+    margin-top: .5rem;
   }
+
   .nav-title h4 {
-    text-align: center;
     font-size: 1rem;
   }
+
   .nav-logo img {
     width: 2.5rem;
   }
+
   .get-started-btn {
     display: none;
   }

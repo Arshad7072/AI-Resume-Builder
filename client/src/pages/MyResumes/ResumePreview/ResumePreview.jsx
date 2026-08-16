@@ -96,9 +96,29 @@ const ResumePreview = () => {
   // Download PDF
   // ==========================
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
     if (!resumeRef.current) return;
 
+    try {
+      const token = localStorage.getItem("token");
+
+      // Save download history
+      await API.post(
+        "/download-history",
+        {
+          resume: resume._id,
+          resumeName: `${resume.personal.firstName} ${resume.personal.lastName}`,
+          template,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+    } catch (error) {
+      console.error("Failed to save download history");
+    }
     const fileName = `${resume?.personal?.firstName || "Resume"}_${
       resume?.personal?.lastName || ""
     }_Resume.pdf`;

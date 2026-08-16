@@ -8,15 +8,17 @@
   align-items: center;
   gap: 2rem;
 
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
 
-  color: white;
+  color: #fff;
 
   padding: 2rem;
 
   border-radius: 1rem;
 
   margin-bottom: 2rem;
+
+  box-shadow: var(--shadow);
 }
 
 .welcome-text {
@@ -25,70 +27,67 @@
 
 .welcome-text h1 {
   font-size: 2rem;
-
   margin-bottom: 0.8rem;
 }
 
 .welcome-text p {
   max-width: 38rem;
-
   line-height: 1.7;
-
   opacity: 0.95;
 }
 
+/* ===========================
+   Quick Actions
+=========================== */
+
 .quick-actions {
   display: flex;
-
   gap: 1rem;
-
   flex-wrap: wrap;
 }
 
 .primary-btn {
-  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
 
-  color: #7c3aed;
+  padding: 0.9rem 1.3rem;
 
   border: none;
-
-  padding: 0.9rem 1.3rem;
-
   border-radius: 0.8rem;
 
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.6rem;
+  background: var(--card);
+  color: var(--primary);
 
   font-weight: 600;
-
   cursor: pointer;
-}
 
-.secondary-btn {
-  background: rgba(255, 255, 255, 0.15);
-
-  color: white;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
-
-  padding: 0.9rem 1.3rem;
-
-  border-radius: 0.8rem;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.6rem;
-
-  cursor: pointer;
+  transition: 0.3s;
 }
 
 .primary-btn:hover {
-  background: #f3f4f6;
+  background: var(--hover);
+}
+
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  padding: 0.9rem 1.3rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  border-radius: 0.8rem;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: 0.3s;
 }
 
 .secondary-btn:hover {
@@ -102,7 +101,6 @@
 @media (max-width: 992px) {
   .welcome-banner {
     flex-direction: column;
-
     align-items: flex-start;
   }
 }
@@ -122,14 +120,12 @@
 
   .quick-actions {
     width: 100%;
-
     flex-direction: column;
   }
 
   .primary-btn,
   .secondary-btn {
     width: 100%;
-
     justify-content: center;
   }
 }

@@ -1,35 +1,75 @@
 import "./ActivityTimeline.css";
 
-import { FaFileAlt, FaRobot, FaDownload, FaEdit } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
-const activities = [
-  {
-    id: 1,
-    icon: <FaFileAlt />,
-    title: "Resume Created",
-    time: "10 minutes ago",
-  },
-  {
-    id: 2,
-    icon: <FaRobot />,
-    title: "AI Summary Generated",
-    time: "1 hour ago",
-  },
-  {
-    id: 3,
-    icon: <FaEdit />,
-    title: "Resume Updated",
-    time: "Yesterday",
-  },
-  {
-    id: 4,
-    icon: <FaDownload />,
-    title: "Resume Downloaded",
-    time: "2 days ago",
-  },
-];
+import API from "../../api/api";
+
+import { FaFileAlt, FaDownload } from "react-icons/fa";
 
 const ActivityTimeline = () => {
+  const [activities, setActivities] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchActivities();
+  }, []);
+
+  // ==========================================
+  // Fetch Activity
+  // ==========================================
+
+  const fetchActivities = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const [resumeRes, downloadRes] = await Promise.all([
+        API.get("/resume", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }),
+
+        API.get("/download-history", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }),
+      ]);
+
+      const createdActivities = resumeRes.data.resumes.map((resume) => ({
+        id: `resume-${resume._id}`,
+        icon: <FaFileAlt />,
+        title: `Created Resume`,
+        subtitle: `${resume.personal?.firstName} ${resume.personal?.lastName}`,
+        date: resume.createdAt,
+      }));
+
+      const downloadActivities = downloadRes.data.history.map((item) => ({
+        id: `download-${item._id}`,
+        icon: <FaDownload />,
+        title: `Downloaded Resume`,
+        subtitle: item.resumeName,
+        date: item.createdAt,
+      }));
+
+      const allActivities = [...createdActivities, ...downloadActivities]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3);
+
+      setActivities(allActivities);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to load activities");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <h3>Loading...</h3>;
+  }
+
   return (
     <div className="activity-card">
       <div className="activity-header">
@@ -37,17 +77,23 @@ const ActivityTimeline = () => {
       </div>
 
       <div className="timeline">
-        {activities.map((item) => (
-          <div className="timeline-item" key={item.id}>
-            <div className="timeline-icon">{item.icon}</div>
+        {activities.length === 0 ? (
+          <p>No recent activity.</p>
+        ) : (
+          activities.map((item) => (
+            <div className="timeline-item" key={item.id}>
+              <div className="timeline-icon">{item.icon}</div>
 
-            <div className="timeline-content">
-              <h4>{item.title}</h4>
+              <div className="timeline-content">
+                <h4>{item.title}</h4>
 
-              <span>{item.time}</span>
+                <p>{item.subtitle}</p>
+
+                <span>{new Date(item.date).toLocaleString()}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
